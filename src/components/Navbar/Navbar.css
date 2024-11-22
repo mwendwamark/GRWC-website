@@ -4,7 +4,6 @@
     width: 100%;
     top: 0;
     z-index: 1000;
-    border-bottom: 0.5px solid var(--text-color);
 }
 
 .navbar-container {
@@ -27,7 +26,7 @@
 
 .navbar-links {
     display: flex;
-    gap: 20px;
+    gap: 25px;
     align-items: center;
 }
 
@@ -89,6 +88,10 @@
 
 
 @media screen and (max-width: 768px) {
+    .navbar {
+        border-bottom: 0.5px solid var(--text-color);
+    }
+
     .navbar-container {
         display: flex;
     }
@@ -117,7 +120,6 @@
         color: --back;
     }
 
-
     .navbar-menu-icon {
         display: block;
     }
@@ -145,7 +147,7 @@
 
 @media screen and (max-width: 450px) {
     .navbar-logo {
-        height: 50px;
+        height: 60px;
     }
 
     .navbar-links {
@@ -162,5 +164,9 @@
         transition: right 0.3s ease;
         box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.1);
         gap: 20px;
+    }
+
+    .navbar-menu-icon {
+        font-size: 18px;
     }
 }
