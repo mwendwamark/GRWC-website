@@ -87,7 +87,7 @@
 }
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 950px) {
     .navbar {
         border-bottom: 0.5px solid var(--text-color);
     }
@@ -107,13 +107,14 @@
         align-items: flex-start;
         justify-content: center;
         padding: 20px;
-        transition: right 0.3s ease;
+        transition: right 0.7s ease;
         box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.1);
         gap: 20px;
     }
 
     .navbar-links.active {
         right: 0;
+        
     }
 
     .navbar-links a {
