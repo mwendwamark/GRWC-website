@@ -98,6 +98,100 @@
     color: var(--purple-color);
 }
 
+/* ======================================ABOUT SECTION====================================== */
+.church-history-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+.history-headers {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+}
+
+.small-header {
+    font-size: var(--h3-fs);
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--purple-color);
+}
+
+.small-header::after {
+    content: "";
+    display: inline-block;
+    width: 30px;
+    height: 2px;
+    background-color: var(--purple-color);
+    margin-right: 10px;
+    vertical-align: baseline;
+}
+
+.big-header {
+    font-size: var(--h2-fs);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.church-history-contents {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.church-history-image-container {
+    width: 49%;
+    position: relative;
+}
+
+.church-history-image-container img {
+    width: 90%;
+    height: 90%;
+    box-shadow: var(--grey-color) 10px 10px;
+    object-fit: cover;
+    border-radius: 0px;
+}
+
+.church-history-texts {
+    width: 49%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 15px;
+}
+
+.church-history-texts h3 {
+    font-size: var(--h4-fs);
+    color: var(--black-color);
+    font-weight: 600;
+}
+
+.church-history-texts p {
+    font-size: var(--text-size);
+    color: var(--text-color);
+}
+
+.read-more-btn {
+    border: 2px solid var(--purple-color);
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--purple-color);
+    padding: 8px 16px;
+    font-size: var(--text-size);
+    transition: 0.6s linear;
+}
+
+.read-more-btn:hover {
+    background-color: var(--light-pink);
+}
+
 @media (max-width: 768px) {
     .hero-section {
         height: 400px;
@@ -153,5 +247,50 @@
     .hero-title p {
         width: 70%;
         margin: 0 auto;
+    }
+}
+
+/* ======================================ABOUT SECTION====================================== */
+
+@media (max-width: 768px) {
+
+    .church-history-section {
+        padding-top: 150px;
+        gap: 20px;
+    }
+
+    .church-history-contents {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+    }
+
+    .church-history-image-container {
+        width: 100%;
+    }
+
+    .church-history-image-container img {
+        width: 100%;
+        height: 100%;
+        box-shadow: var(--grey-color) 5px 5px;
+    }
+
+    .church-history-texts {
+        width: 100%;
+    }
+}
+
+@media (max-width: 500px) {
+    .church-history-image-container {
+        width: 100%;
+    }
+
+    .small-header {
+        font-size: 18px;
+    }
+
+    .big-header {
+        font-size: 25px;
     }
 }

@@ -7,11 +7,14 @@
   --text-color: #848484;
   --title-color: #282828;
   --light-pink: #F2CBFF;
+  --grey-color: #848484;
+  --black-color: #1e1e1e;
 
   /* Font sizes */
   --h1-fs: 48px;
   --h2-fs: 30px;
-  --h3-fs: 20px;
+  --h3-fs: 22px;
+  --h4-fs: 20px;
   --text-size: 16px;
 
   /* Font families */
