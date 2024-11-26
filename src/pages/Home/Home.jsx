@@ -60,7 +60,7 @@ const Home = () => {
                   )}
                   <div className="slide-text">
                     <p>{item.text}</p>
-                    <button className="visit-btn">Visit us →</button>
+                    <NavLink className="visit-btn">Visit us →</NavLink>
                   </div>
                 </div>
               </SwiperSlide>
@@ -75,7 +75,7 @@ const Home = () => {
           </div>
 
           <div className="church-history-contents">
-            <div class="church-history-image-container">
+            <div className="church-history-image-container">
               <img src={img} alt="History of Gospel Revival Wave" />
             </div>
 
