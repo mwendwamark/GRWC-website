@@ -8,9 +8,10 @@ import { HeroData } from "../../assets/HeroImages/HeroData"; // Import your Hero
 import "./Home.css";
 import { NavLink } from "react-router-dom";
 import { LiaLongArrowAltRightSolid } from "react-icons/lia";
-import { MdTrackChanges } from "react-icons/md";
+import { MdTrackChanges, MdOutlineAccessAlarms } from "react-icons/md";
 import { FaRegLightbulb } from "react-icons/fa";
 import img from "../../assets/HeroImages/image3.jpg";
+import img1 from "../../assets/services.jpg"
 
 const Home = () => {
   return (
@@ -140,7 +141,54 @@ const Home = () => {
             </div>
           </div>
         </section>
-        <section className="section"></section>
+
+        <section className="services-section section">
+          <header className="history-headers container">
+            <h2 className="small-header">SERVICES</h2>
+            <h1 className="big-header">OUR SERVICES</h1>
+          </header>
+
+          <div className="services-contents container ">
+            <div className="services-contents-left">
+              <header className="services-headers">
+                <h3 className="services-small-header"> MAIN SERVICES</h3>
+                <h2 className="services-big-header">JOIN US EVERY SUNDAY</h2>
+              </header>
+              <div className="service-order">
+                <h3>
+                  First Service <span>(English Service)</span>
+                </h3>
+                <span>
+                  <MdOutlineAccessAlarms /> <i>8:00 AM ~ 10:30 AM</i>
+                </span>
+                <p>
+                  Join our powerful English Service Every Sunday. All are
+                  welcome.
+                </p>
+              </div>
+              <div className="service-order">
+                <h3>
+                  Second Service <span>(Swahili Service)</span>
+                </h3>
+                <span>
+                  <MdOutlineAccessAlarms /> <i>11:00 AM ~ 1:00 PM</i>
+                </span>
+                <p>
+                  Experience our vibrant Swahili Service and connect with the
+                  community.
+                </p>
+              </div>
+
+              <div className="sermons-button">
+                <NavLink to="/sermons" >View sermons</NavLink>
+              </div>
+            </div>
+
+            <div className="services-image-right">
+              <img src={img1} alt="Church Services" />
+            </div>
+          </div>
+        </section>
       </div>
     </main>
   );

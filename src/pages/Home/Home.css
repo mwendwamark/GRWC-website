@@ -102,6 +102,64 @@
     outline-offset: 2px;
 }
 
+@media (max-width: 768px) {
+    .hero-section {
+        height: 400px;
+        margin-top: 70px;
+    }
+
+    .hero-title {
+        position: absolute;
+        top: -11%;
+        left: 50%;
+    }
+
+    .hero-title h1 {
+        font-size: 35px;
+    }
+
+    .slide-text {
+        position: absolute;
+        bottom: 10%;
+        left: 5%;
+        color: white;
+        z-index: 10;
+    }
+
+    .slide-text p {
+        font-size: 0.9rem;
+        width: 80%;
+    }
+
+    .hero-title h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-title h2 {
+        font-size: 2rem;
+    }
+
+    .hero-title p {
+        font-size: 1rem;
+    }
+
+    .visit-btn {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 500px) {
+    .hero-title h1 {
+        font-size: 35px;
+    }
+
+    .hero-title p {
+        width: 70%;
+        margin: 0 auto;
+    }
+}
+
 /* ======================================ABOUT SECTION====================================== */
 .church-history-section {
     width: 100%;
@@ -203,6 +261,56 @@
     transform: translateX(4px);
 }
 
+/* RESPONSIVENESS */
+@media (max-width: 950px) {
+
+    .church-history-section {
+        padding-top: 10px;
+        gap: 20px;
+    }
+
+    .church-history-contents {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+    }
+
+    .church-history-image-container {
+        width: 100%;
+    }
+
+    .church-history-image-container img {
+        width: 100%;
+        height: 100%;
+        box-shadow: var(--grey-color) 5px 5px;
+    }
+
+    .church-history-texts {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .church-history-section {
+        padding-top: 140px;
+        gap: 20px;
+    }
+
+    .church-history-image-container {
+        width: 100%;
+    }
+
+    .small-header {
+        font-size: 18px;
+    }
+
+    .big-header {
+        font-size: 25px;
+    }
+}
+
 /* ======================================MISSION AND VISION SECTION====================================== */
 .mission-and-vision {
     width: 100%;
@@ -264,116 +372,7 @@
     font-size: var(--h3-fs);
 }
 
-@media (max-width: 768px) {
-    .hero-section {
-        height: 400px;
-        margin-top: 70px;
-    }
-
-    .hero-title {
-        position: absolute;
-        top: -11%;
-        left: 50%;
-    }
-
-    .hero-title h1 {
-        font-size: 35px;
-    }
-
-    .slide-text {
-        position: absolute;
-        bottom: 10%;
-        left: 5%;
-        color: white;
-        z-index: 10;
-    }
-
-    .slide-text p {
-        font-size: 0.9rem;
-        width: 80%;
-    }
-
-    .hero-title h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero-title h2 {
-        font-size: 2rem;
-    }
-
-    .hero-title p {
-        font-size: 1rem;
-    }
-
-    .visit-btn {
-        font-size: 0.9rem;
-        padding: 8px 16px;
-    }
-}
-
-@media (max-width: 500px) {
-    .hero-title h1 {
-        font-size: 35px;
-    }
-
-    .hero-title p {
-        width: 70%;
-        margin: 0 auto;
-    }
-}
-
-/* ======================================ABOUT SECTION====================================== */
-
-@media (max-width: 950px) {
-
-    .church-history-section {
-        padding-top: 10px;
-        gap: 20px;
-    }
-
-    .church-history-contents {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-        width: 100%;
-    }
-
-    .church-history-image-container {
-        width: 100%;
-    }
-
-    .church-history-image-container img {
-        width: 100%;
-        height: 100%;
-        box-shadow: var(--grey-color) 5px 5px;
-    }
-
-    .church-history-texts {
-        width: 100%;
-    }
-}
-
-@media (max-width: 768px) {
-
-    .church-history-section {
-        padding-top: 140px;
-        gap: 20px;
-    }
-
-    .church-history-image-container {
-        width: 100%;
-    }
-
-    .small-header {
-        font-size: 18px;
-    }
-
-    .big-header {
-        font-size: 25px;
-    }
-}
-
-/* ======================================MISSION AND VISION SECTION====================================== */
+/* RESPONSIVENESS */
 @media (max-width: 1000px) {
     .mission-and-vision-contents {
         flex-direction: column;
@@ -385,5 +384,111 @@
     .mission-and-vision .mission-and-vision-contents {
         flex-direction: column;
         width: 100%;
+    }
+}
+
+/* ======================================SERVICES SECTION====================================== */
+.services-section {
+    width: 100%;
+    padding: 4rem 0;
+    background-color: var(--light-pink);
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+
+}
+
+.services-contents {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding-top: 1.5rem;
+}
+
+.services-contents-left {
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.services-contents-left header h3 {
+    font-size: 1rem;
+    color: var(--purple-color);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.services-contents-left header h2 {
+    text-transform: uppercase;
+    color: var(--text-color);
+    font-size: var(--h3-fs);
+}
+
+.service-order {
+    margin-bottom: 1rem;
+}
+
+.service-order h3 {
+    font-size: var(--h3-fs);
+    color: var(--title-color);
+    font-weight: var(--h2-fw);
+}
+
+.service-order span {
+    font-size: var(--text-size);
+    color: var(--text-color);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.service-order p {
+    font-size: var(--text-size);
+    color: var(--text-color);
+}
+
+.services-image-right {
+    width: 40%;
+}
+
+.services-image-right img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.sermons-button {
+    width: 100%;
+    padding: 8px 16px;
+    background-color: var(--purple-color);
+    text-align: center;
+    cursor: pointer;
+    transition: 0.6s linear;
+}
+
+.sermons-button:hover {
+    opacity: 0.6;
+}
+
+.sermons-button a {
+    color: var(--background-color);
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .services-contents {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .services-contents-left,
+    .services-image-right {
+        width: 100%;
+    }
+
+    .services-image-right img {
+        margin-top: 1rem;
     }
 }
