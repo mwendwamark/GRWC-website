@@ -5,6 +5,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { HeroData } from "../../assets/HeroImages/HeroData"; // Import your HeroData file
+import { MinistriesData } from "../../assets/Ministries/MinistriesData";
 import "./Home.css";
 import { NavLink } from "react-router-dom";
 import { LiaLongArrowAltRightSolid } from "react-icons/lia";
@@ -12,7 +13,7 @@ import { MdTrackChanges, MdOutlineAccessAlarms } from "react-icons/md";
 import { FaRegLightbulb } from "react-icons/fa";
 import { BsArrowUpRight } from "react-icons/bs";
 import img from "../../assets/HeroImages/image3.jpg";
-import img1 from "../../assets/services.jpg"
+import img1 from "../../assets/services.jpg";
 
 const Home = () => {
   return (
@@ -182,7 +183,7 @@ const Home = () => {
 
               <div className="sermons-button">
                 <NavLink to="/sermons">View sermons</NavLink>
-                <BsArrowUpRight style={{color: "#fff"}} />
+                <BsArrowUpRight style={{ color: "#fff" }} />
               </div>
             </div>
 
@@ -190,6 +191,55 @@ const Home = () => {
               <img src={img1} alt="Church Services" />
             </div>
           </div>
+        </section>
+
+        <section className="ministries-section section container">
+          <header className="history-headers container">
+            <h2 className="small-header">MINISTRIES</h2>
+            <h1 className="big-header">CHURCH MINISTRIES</h1>
+          </header>
+
+          <Swiper
+            slidesPerView={1}
+            spaceBetween={12}
+            loop={true}
+            pagination={{
+              clickable: true,
+            }}
+            navigation={false}
+            modules={[Autoplay, Pagination, Navigation]}
+            autoplay={{
+              delay: 7000,
+              disableOnInteraction: false,
+            }}
+            speed={1800}
+            breakpoints={{
+              576: {
+                slidesPerView: 1,
+              },
+              660: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              1024: {
+                slidesPerView: 4,
+                spaceBetween: 12,
+              },
+            }}
+          >
+            {MinistriesData.map(({ id, image, title, description }) => (
+              <SwiperSlide className="ministries-card" key={id}>
+                <div className="ministries-card-content">
+                  <img src={image} alt={title} className="ministries-img" />
+                  <div className="ministries-info">
+                    <h3 className="ministries-title">{title}</h3>
+                    <p className="ministries-description">{description}</p>
+                    <NavLink to="/ministries">More details</NavLink>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </section>
       </div>
     </main>
