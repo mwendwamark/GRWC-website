@@ -25,7 +25,7 @@
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
-    color: #a433c7;
+    color: var(--purple-color);
     z-index: 10;
     width: 100%;
 }
@@ -127,7 +127,7 @@
     }
 
     .slide-text p {
-        font-size: 0.9rem;
+        font-size: 1rem;
         width: 80%;
     }
 
@@ -144,7 +144,7 @@
     }
 
     .visit-btn {
-        font-size: 0.9rem;
+        font-size: 1rem;
         padding: 8px 16px;
     }
 }
@@ -438,7 +438,7 @@
 
 .service-order span {
     font-size: var(--text-size);
-    color: var(--text-color);
+    color: var(--black-color);
     display: block;
     margin-bottom: 0.5rem;
 }
@@ -461,8 +461,11 @@
 .sermons-button {
     width: 100%;
     padding: 8px 16px;
-    background-color: var(--purple-color);
-    text-align: center;
+    display: flex;
+    align-items: center;
+    background-color: var(--black-color);
+    justify-content: center;
+    gap: 5px;
     cursor: pointer;
     transition: 0.6s linear;
 }
@@ -473,6 +476,10 @@
 
 .sermons-button a {
     color: var(--background-color);
+}
+
+.sermon-settings-btn{
+    margin: 0 auto;
 }
 
 

@@ -10,6 +10,7 @@ import { NavLink } from "react-router-dom";
 import { LiaLongArrowAltRightSolid } from "react-icons/lia";
 import { MdTrackChanges, MdOutlineAccessAlarms } from "react-icons/md";
 import { FaRegLightbulb } from "react-icons/fa";
+import { BsArrowUpRight } from "react-icons/bs";
 import img from "../../assets/HeroImages/image3.jpg";
 import img1 from "../../assets/services.jpg"
 
@@ -180,7 +181,8 @@ const Home = () => {
               </div>
 
               <div className="sermons-button">
-                <NavLink to="/sermons" >View sermons</NavLink>
+                <NavLink to="/sermons">View sermons</NavLink>
+                <BsArrowUpRight style={{color: "#fff"}} />
               </div>
             </div>
 
