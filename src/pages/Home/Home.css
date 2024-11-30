@@ -594,3 +594,70 @@
 }
 
 /* =================== UPCOMING EVENTS =================== */
+.events-section {
+    margin-top: 6rem;
+    background-image: url("../../assets/HeroImages/image2.jpg");
+    height: 300px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+.events-headers {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.events-contents {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+}
+
+.events-contents p,
+.events-headers h1 {
+    color: var(--background-color);
+}
+
+.events-contents a p {
+    transition: 0.6s linear;
+}
+
+.events-contents a p:hover {
+    color: var(--purple-color);
+}
+
+.events-contents a {
+    display: flex;
+    align-items: center;
+    color: var(--background-color);
+    justify-content: center;
+    padding: 0.6rem 1.2rem;
+    background-color: var(--purple-color);
+    width: fit-content;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: 0.6s linear;
+    gap: 5px;
+}
+
+.events-contents a:hover {
+    background: transparent;
+    border: 1px solid var(--purple-color);
+    color: var(--purple-color);
+    gap: 10px;
+}
+
+@media (max-width: 500px) {
+    .events-contents {
+        padding: 10px;
+        text-align: center;
+    }
+}
