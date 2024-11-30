@@ -59,7 +59,7 @@ const Home = () => {
                       src={item.image}
                       alt={`Slide ${item.id}`}
                       className="image-slide"
-                      loading="lazy"
+                      // loading="lazy"
                     />
                   )}
                   <div className="slide-text">
