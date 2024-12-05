@@ -682,7 +682,6 @@
 
 .contact-us-contents form h1 {
     text-align: center;
-    text-transform: capitalize;
     color: var(--black-color);
     font-weight: 500;
     margin-bottom: 1rem;

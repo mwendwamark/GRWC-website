@@ -282,11 +282,11 @@ const Home = () => {
         <section className="contact-us-section section section container">
           <header className="history-headers container">
             <h2 className="small-header">CONTACT US</h2>
-            <h1 className="big-header">REACH OUT TO US</h1>
+            <h1 className="big-header">GET IN TOUCH</h1>
           </header>
           <div className="contact-us-contents">
             <form ref={form} onSubmit={sendEmail}>
-              <h1>contact us</h1>
+              <h1>Send us a message</h1>
               <div className="name-field">
                 <label htmlFor="name">Name</label>
                 <input
