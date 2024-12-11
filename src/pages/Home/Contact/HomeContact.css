@@ -53,12 +53,15 @@
 }
 
 .contact-us-contents form button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
     padding: 0.7rem 1rem;
     color: #ffffff;
     background-color: var(--black-color);
     border: none;
     font-size: 1rem;
-    font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }

@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import "./HomeContact.css";
 import emailjs from "@emailjs/browser";
-
+import { FiSend } from "react-icons/fi";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const HomeContact = () => {
@@ -16,10 +16,10 @@ const HomeContact = () => {
       })
       .then(
         () => {
-          toast.success("MESSAGE SENT");
+          toast.success("Message Sent");
         },
         (error) => {
-          toast.error("FAILED...", error.text);
+          toast.error("Failed...", error.text);
         }
       );
     e.target.reset();
@@ -90,7 +90,9 @@ const HomeContact = () => {
               ></textarea>
             </div>
 
-            <button type="submit">Send</button>
+            <button type="submit">
+              Send Message <FiSend />
+            </button>
           </form>
           <div className="map-section">
             <iframe
