@@ -1,0 +1,254 @@
+.footer-section {
+    background: linear-gradient(135deg,
+            var(--light-pink),
+            var(--background-color),
+            var(--light-pink));
+    position: relative;
+    padding: 3rem 0;
+    color: var(--black-color);
+    margin-top: 6rem;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.footer::after {
+    content: "GRWC";
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 350px;
+    font-weight: 900;
+    color: rgba(187, 182, 182, 0.3);
+    white-space: nowrap;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.left-footer {
+    max-width: 400px;
+}
+
+.left-footer-header {
+    display: flex;
+    align-items: center;
+}
+
+.left-footer-header img {
+    height: 70px;
+}
+
+.left-footer-header h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.left-footer-text p {
+    line-height: 1.6;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.left-footer-btn a {
+    display: inline-block;
+    text-decoration: none;
+    background-color: var(--black-color);
+    color: var(--background-color);
+    padding: 0.8rem 1.8rem;
+    border-radius: 0px;
+    transition: background-color 0.3s ease;
+}
+
+.left-footer-btn a:hover {
+    background-color: transparent;
+    border: 1px solid var(--black-color);
+    color: var(--black-color);
+    outline: 1px solid var(--black-color);
+}
+
+/* Center footer styles */
+.center-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.center-footer .footer-links-title h3 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.f-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.f-links a {
+    text-decoration: none;
+    color: var(--grey-color);
+    transition: color 0.3s ease;
+}
+
+.f-links a.active {
+    color: var(--black-color);
+}
+
+.f-links a:hover {
+    color: var(--black-color);
+}
+
+.right-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.right-footer-header h3 {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.phone-email-location {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.phone-email-location p {
+    color: var(--text-color);
+}
+
+.right-footer-icon {
+    font-size: 1.35rem;
+    font-weight: 600;
+}
+
+.footer-location,
+.footer-email,
+.footer-phone {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #333;
+}
+
+.social-icons {
+    font-size: 1.4rem;
+    color: var(--text-color);
+    transition: .6s linear;
+}
+
+.social-icons:hover {
+    color: var(--black-color);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-links a {
+    color: #333;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #063231;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 1rem;
+    color: var(--faint-text);
+    font-size: 0.9rem;
+}
+
+.footer-rights {
+    margin-top: 0.5rem;
+    font-weight: 400;
+    color: var(--black-color);
+}
+
+@media (max-width: 1100px) {
+    .footer::after {
+        content: "GRWC";
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 300px;
+        font-weight: 900;
+        color: rgba(187, 182, 182, 0.3);
+        white-space: nowrap;
+        z-index: -1;
+        pointer-events: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .footer::after {
+        font-size: 200px;
+        top: 53%;
+        left: 50%;
+    }
+
+    .left-footer-header {
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+
+    .left-footer-header img {
+        height: 70px;
+    }
+}
+
+@media (max-width: 650px) {
+    .footer::after {
+        font-size: 180px;
+    }
+}
+
+@media (max-width: 570px) {
+    .footer::after {
+        font-size: 160px;
+    }
+}
+
+@media (max-width: 500px) {
+    .footer::after {
+        font-size: 140px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer::after {
+        font-size: 120px;
+        top: 100%;
+    }
+}
+
+@media (max-width: 380px) {
+    .footer::after {
+        font-size: 100px;
+    }
+}
