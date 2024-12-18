@@ -261,7 +261,7 @@
 @media (max-width: 480px) {
     .footer::after {
         font-size: 120px;
-        top: 100%;
+        top: 50%;
     }
 }
 
