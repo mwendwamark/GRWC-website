@@ -9,6 +9,7 @@ import { FaTiktok } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import { GrLocation } from "react-icons/gr";
 import logo from "../../assets/logo.png";
+import mpesa from "../../assets/mpesa.png";
 
 const Footer = () => {
   return (
@@ -48,6 +49,17 @@ const Footer = () => {
                 <NavLink to="/branches">Branches</NavLink>
                 <NavLink to="/gallery">Gallery</NavLink>
               </div>
+            </div>
+          </div>
+
+          <div className="give-footer">
+            <div className="give-footer-header">
+              <h3>Give</h3>
+            </div>
+            <div className="give-footer-info">
+              <img src={mpesa} alt="" />
+              <p>Paybill No: <span> 400222</span></p>
+              <p>Account No: <span> 162929#tithe</span></p>
             </div>
           </div>
           <div className="right-footer">

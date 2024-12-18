@@ -54,9 +54,11 @@
 
 .events-contents a:hover {
     background: transparent;
-    border: 1px solid var(--purple-color);
-    color: var(--purple-color);
     gap: 10px;
+    border: 2px solid var(--purple-color);
+    color: var(--purple-color);
+    outline: 2px solid var(--purple-color);
+    outline-offset: 2px;
 }
 
 @media (max-width: 500px) {
