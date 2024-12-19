@@ -262,6 +262,12 @@
     }
 }
 
+@media (max-width: 450px){
+    .left-footer-header img {
+        height: 60px;
+    }
+}
+
 @media (max-width: 480px) {
     .footer::after {
         font-size: 120px;
