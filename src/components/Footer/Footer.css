@@ -155,6 +155,10 @@
     color: var(--text-color);
 }
 
+.footer-phone a {
+    color: var(--text-color);
+}
+
 .right-footer-icon {
     font-size: 1.35rem;
     font-weight: 600;

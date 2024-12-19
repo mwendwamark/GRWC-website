@@ -58,8 +58,12 @@ const Footer = () => {
             </div>
             <div className="give-footer-info">
               <img src={mpesa} alt="" />
-              <p>Paybill No: <span> 400222</span></p>
-              <p>Account No: <span> 162929#tithe</span></p>
+              <p>
+                Paybill No: <span> 400222</span>
+              </p>
+              <p>
+                Account No: <span> 162929#tithe</span>
+              </p>
             </div>
           </div>
           <div className="right-footer">
@@ -68,27 +72,30 @@ const Footer = () => {
             </div>
             <div className="phone-email-location">
               <div className="footer-location">
-                <GrLocation className="right-footer-icon" /> <p>Bishop Ireri Road, opposite Murema Primary School</p>
+                <GrLocation className="right-footer-icon" />{" "}
+                <p>Bishop Ireri Road, opposite Murema Primary School</p>
               </div>
               <div className="footer-email">
-                <CiMail className="right-footer-icon" /> <p>gospelrevivalwavechurch@yahoo.com</p>
+                <CiMail className="right-footer-icon" />{" "}
+                <p>gospelrevivalwavechurch@yahoo.com</p>
               </div>
               <div className="footer-phone">
-                <MdOutlinePhone className="right-footer-icon" /> <p>+254726 863953</p>
+                <MdOutlinePhone className="right-footer-icon" />{" "}
+                <a href="tel:+254726863953">+254 726 863 953</a>
               </div>
             </div>
             <div className="social-links">
               <NavLink to="">
-                <FaFacebook  className="social-icons"/>
+                <FaFacebook className="social-icons" />
               </NavLink>
               <NavLink to="">
                 <BsInstagram className="social-icons" />
               </NavLink>
               <NavLink to="">
-                <FaTiktok  className="social-icons"/>
+                <FaTiktok className="social-icons" />
               </NavLink>
               <NavLink to="">
-                <FaYoutube  className="social-icons"/>
+                <FaYoutube className="social-icons" />
               </NavLink>
             </div>
           </div>
