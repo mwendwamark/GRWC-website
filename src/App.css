@@ -68,3 +68,35 @@ input {
 .section {
   padding-top: 6rem;
 }
+
+.construction-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  color: var(--grey-color);
+}
+
+.construction-img {
+  width: 60%;
+  height: auto;
+  object-fit: cover;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (max-width: 950px) {
+  .construction-img {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .construction-img {
+    width: 100%;
+  }
+
+  .construction-div h1 {
+    font-size: 1.4rem;
+  }
+}
