@@ -85,16 +85,16 @@ const Footer = () => {
               </div>
             </div>
             <div className="social-links">
-              <NavLink to="">
+              <NavLink to="https://www.facebook.com/gospelrevivawavechurch/">
                 <FaFacebook className="social-icons" />
               </NavLink>
-              <NavLink to="">
+              <NavLink to="https://www.instagram.com/gospel_revival_wave_church/">
                 <BsInstagram className="social-icons" />
               </NavLink>
-              <NavLink to="">
+              <NavLink to="https://www.tiktok.com/@kasarani.youngsters?lang=en">
                 <FaTiktok className="social-icons" />
               </NavLink>
-              <NavLink to="">
+              <NavLink to="https://www.youtube.com/@jjireri">
                 <FaYoutube className="social-icons" />
               </NavLink>
             </div>
