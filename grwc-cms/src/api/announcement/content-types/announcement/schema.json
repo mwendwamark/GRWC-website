@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "announcements",
+  "info": {
+    "singularName": "announcement",
+    "pluralName": "announcements",
+    "displayName": "Announcement"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "announcementTitle": {
+      "type": "string"
+    },
+    "announcementContent": {
+      "type": "blocks"
+    },
+    "announcementDate": {
+      "type": "date"
+    },
+    "author": {
+      "type": "string"
+    }
+  }
+}

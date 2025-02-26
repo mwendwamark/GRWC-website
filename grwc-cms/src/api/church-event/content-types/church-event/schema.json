@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "church_events",
+  "info": {
+    "singularName": "church-event",
+    "pluralName": "church-events",
+    "displayName": "Church Event"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "eventTitle": {
+      "type": "string"
+    },
+    "eventDate": {
+      "type": "date"
+    },
+    "eventCoverImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "eventDetails": {
+      "type": "blocks"
+    }
+  }
+}
