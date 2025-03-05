@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
-import logo from "../../assets/logo.png"
+import logo from "../../assets/logo.png";
 import "./Navbar.css";
 
 const Navbar = () => {
@@ -38,6 +38,14 @@ const Navbar = () => {
           <NavLink to="/branches" onClick={closeMenu} className="nav-item">
             Branches
           </NavLink>
+          {/* <NavLink to="/gallery" onClick={closeMenu} className="nav-item">
+            Gallery
+          </NavLink> */}
+          <NavLink
+            to="/announcements"
+            onClick={closeMenu}
+            className="nav-item"
+            >Announcements</NavLink>
           <div className="nav-right-side hide-on-large">
             {/* Add Buttons Here for Small Screens */}
             <NavLink to="/donate" onClick={closeMenu} className="nav-item">

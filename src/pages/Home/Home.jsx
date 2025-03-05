@@ -12,7 +12,7 @@ import HomeContact from "./Contact/HomeContact";
 
 const Home = () => {
   return (
-    <main className="home section">
+    <main className="home small-section">
       <div className="home-container">
         <Hero />
         <HomeHistory />

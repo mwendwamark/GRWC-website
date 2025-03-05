@@ -12,7 +12,7 @@ import { LiaLongArrowAltRightSolid } from "react-icons/lia";
 const Hero = () => {
   return (
     <>
-      <section className="hero-section container">
+      <section className="hero-section container small-section">
         <div className="hero-title">
           <h1>
             GOSPEL REVIVAL <br /> <span>WAVE CHURCH</span>

@@ -12,30 +12,56 @@
 // import Contacts from "./pages/Contacts/Contacts";
 // import Give from "./pages/Give/Give";
 // import useFetch from "./Hooks/useFetch";
+// import Announcements from "./pages/Announcements/Announcements";
+// import Event from "./pages/Event/Event";
+// import Announcement from "./pages/Announcement/Announcement";
 
 // const App = () => {
-//   const { loading, error, data } = useFetch(
-//     "http://localhost:1337/api/announcements"
-//   );
-//   if (loading) {
-//     return <p className="loading-annoouncement">Loading...</p>;
+//   // Fetch announcements data
+//   const { 
+//     loading: announcementsLoading, 
+//     error: announcementsError, 
+//     data: announcementsData 
+//   } = useFetch("http://localhost:1337/api/announcements");
+  
+//   // Updated to fetch with the correct endpoint (with query parameters for populating media)
+//   const { 
+//     loading: eventsLoading, 
+//     error: eventsError, 
+//     data: eventsData 
+//   } = useFetch("http://localhost:1337/api/church-events?populate=*");
+
+//   // Check if any data is still loading
+//   if (announcementsLoading || eventsLoading) {
+//     return <p className="loading-message">Loading...</p>;
 //   }
 
-//   if (error) return console.log(error);
-//   console.log(data.data[0].announcementTitle);
+//   // Display any errors
+//   if (announcementsError) {
+//     console.error("Error loading announcements:", announcementsError);
+//   }
+  
+//   if (eventsError) {
+//     console.error("Error loading events:", eventsError);
+//   }
+
+//   console.log("Events data:", eventsData);
 
 //   return (
 //     <>
 //       <Navbar />
 //       <Routes>
-//         <Route path="/" element={<Home />}></Route>
-//         <Route path="/branches" element={<Branches />}></Route>
-//         <Route path="/sermons" element={<Sermons />}></Route>
-//         <Route path="/events" element={<Events props = {data} />}></Route>
-//         <Route path="/about" element={<About />}></Route>
-//         <Route path="/ministries" element={<Ministries />}></Route>
-//         <Route path="/contact" element={<Contacts />}></Route>
-//         <Route path="/donate" element={<Give />}></Route>
+//         <Route path="/" element={<Home />} />
+//         <Route path="/branches" element={<Branches />} />
+//         <Route path="/sermons" element={<Sermons />} />
+//         <Route path="/events" element={<Events events={eventsData?.data} />} />
+//         <Route path="/event/:id" element={<Event  />}/>
+//         <Route path="/announcements" element={<Announcements announcements={announcementsData?.data} />} />
+//         <Route path="/announcement" element={<Announcement  />} />
+//         <Route path="/about" element={<About />} />
+//         <Route path="/ministries" element={<Ministries />} />
+//         <Route path="/contact" element={<Contacts />} />
+//         <Route path="/donate" element={<Give />} />
 //       </Routes>
 //       <Footer />
 //     </>
@@ -43,6 +69,7 @@
 // };
 
 // export default App;
+
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
@@ -57,19 +84,40 @@ import About from "./pages/About/About";
 import Contacts from "./pages/Contacts/Contacts";
 import Give from "./pages/Give/Give";
 import useFetch from "./Hooks/useFetch";
+import Announcements from "./pages/Announcements/Announcements";
+import Event from "./pages/Event/Event";
+import Announcement from "./pages/Announcement/Announcement";
 
 const App = () => {
-  const { loading, error, data } = useFetch("http://localhost:1337/api/announcements");
+  // Fetch announcements data
+  const { 
+    loading: announcementsLoading, 
+    error: announcementsError, 
+    data: announcementsData 
+  } = useFetch("http://localhost:1337/api/announcements");
+  
+  // Updated to fetch with the correct endpoint (with query parameters for populating media)
+  const { 
+    loading: eventsLoading, 
+    error: eventsError, 
+    data: eventsData 
+  } = useFetch("http://localhost:1337/api/church-events?populate=*");
 
-  if (loading) {
-    return <p className="loading-announcement">Loading...</p>;
+  // Check if any data is still loading
+  if (announcementsLoading || eventsLoading) {
+    return <p className="loading-message">Loading...</p>;
   }
 
-  if (error) {
-    return <div>Error loading announcements: {error.message}</div>;
+  // Display any errors
+  if (announcementsError) {
+    console.error("Error loading announcements:", announcementsError);
+  }
+  
+  if (eventsError) {
+    console.error("Error loading events:", eventsError);
   }
 
-  console.log(data);
+  console.log("Events data:", eventsData);
 
   return (
     <>
@@ -78,7 +126,10 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/branches" element={<Branches />} />
         <Route path="/sermons" element={<Sermons />} />
-        <Route path="/events" element={<Events events={data?.data} />} />
+        <Route path="/events" element={<Events events={eventsData?.data} />} />
+        <Route path="/church-events/:id" element={<Event events={eventsData?.data}  />} />
+        <Route path="/announcements" element={<Announcements announcements={announcementsData?.data} />} />
+        <Route path="/announcement" element={<Announcement />} />
         <Route path="/about" element={<About />} />
         <Route path="/ministries" element={<Ministries />} />
         <Route path="/contact" element={<Contacts />} />
