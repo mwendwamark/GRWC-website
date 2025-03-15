@@ -404,6 +404,7 @@ export interface ApiAnnouncementAnnouncement
 export interface ApiChurchEventChurchEvent extends Struct.CollectionTypeSchema {
   collectionName: 'church_events';
   info: {
+    description: '';
     displayName: 'Church Event';
     pluralName: 'church-events';
     singularName: 'church-event';
@@ -420,6 +421,7 @@ export interface ApiChurchEventChurchEvent extends Struct.CollectionTypeSchema {
     >;
     eventDate: Schema.Attribute.Date;
     eventDetails: Schema.Attribute.Blocks;
+    eventSummary: Schema.Attribute.Blocks;
     eventTitle: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<

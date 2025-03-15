@@ -41,11 +41,11 @@ const Navbar = () => {
           {/* <NavLink to="/gallery" onClick={closeMenu} className="nav-item">
             Gallery
           </NavLink> */}
-          <NavLink
+          {/* <NavLink
             to="/announcements"
             onClick={closeMenu}
             className="nav-item"
-            >Announcements</NavLink>
+            >Announcements</NavLink> */}
           <div className="nav-right-side hide-on-large">
             {/* Add Buttons Here for Small Screens */}
             <NavLink to="/donate" onClick={closeMenu} className="nav-item">

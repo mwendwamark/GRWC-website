@@ -11,13 +11,13 @@ const renderContent = (content) => {
       case "list":
         const ListTag = block.format === "ordered" ? "ol" : "ul";
         return (
-          <ListTag key={index}>
+          <ListTag key={index} className="event-content-list">
             {block.children.map((item, itemIndex) => (
               <li key={itemIndex}>
                 {item.children.map((text, textIndex) => (
                   <span
                     key={textIndex}
-                    style={{ fontWeight: text.bold ? "bold" : "normal" }}
+                    className={text.bold ? "bold-text" : ""}
                   >
                     {text.text}
                   </span>
@@ -29,11 +29,11 @@ const renderContent = (content) => {
 
       case "paragraph":
         return (
-          <p key={index}>
+          <p key={index} className="event-content-paragraph">
             {block.children.map((text, textIndex) => (
               <span
                 key={textIndex}
-                style={{ fontWeight: text.bold ? "bold" : "normal" }}
+                className={text.bold ? "bold-text" : ""}
               >
                 {text.text}
               </span>
@@ -82,9 +82,9 @@ const Event = () => {
   }, [id]);
 
   if (loading)
-    return <div className="container section">Loading event details...</div>;
-  if (error) return <div className="container section">Error: {error}</div>;
-  if (!event) return <div className="container section">Event not found</div>;
+    return <div className="loading-container"><div className="loading-spinner"></div></div>;
+  if (error) return <div className="error-container">Error: {error}</div>;
+  if (!event) return <div className="not-found-container">Event not found</div>;
 
   // Convert the fetched data structure to match your existing format
   const eventDetails = {
@@ -97,36 +97,61 @@ const Event = () => {
   if (
     event &&
     event.eventCoverImage &&
-    event.eventCoverImage&&
     event.eventCoverImage &&
     event.eventCoverImage.url
   ) {
     imageUrl = event.eventCoverImage.url;
   }
 
-  return (
-    <div className="container section event-detail-page">
-      <h1 className="event-detail-title">{eventDetails.eventTitle}</h1>
+  // Format the date in a more readable way
+  const formatDate = (dateString) => {
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  };
 
-      <div className="event-detail-meta">
-        <span className="event-detail-date">
-          Date: {new Date(eventDetails.eventDate).toLocaleDateString()}
-        </span>
+  return (
+    <div className="event-page">
+      <div className="event-hero" style={{backgroundImage: imageUrl ? `url(http://localhost:1337${imageUrl})` : 'none'}}>
+        <div className="event-hero-overlay">
+          <div className="event-hero-content">
+            <h1 className="event-title">{eventDetails.eventTitle}</h1>
+            <div className="event-date-badge">
+              <span className="event-date-icon">📅</span>
+              <span>{formatDate(eventDetails.eventDate)}</span>
+            </div>
+          </div>
+        </div>
       </div>
 
-      {imageUrl && (
-        <div className="event-detail-image-container">
-          <img
-            src={`http://localhost:1337${imageUrl}`}
-            alt={eventDetails.eventTitle}
-            className="event-detail-image"
-          />
+      <div className="container">
+        <div className="event-content-wrapper">
+          <div className="event-content-card">
+            <h2 className="event-details-heading">Event Details</h2>
+            <div className="event-details-content">
+              {renderContent(eventDetails.eventDetails)}
+            </div>
+          </div>
+          
+          <div className="event-sidebar">
+            <div className="event-info-card">
+              <div className="event-info-item">
+                <h3>When</h3>
+                <p>{formatDate(eventDetails.eventDate)}</p>
+              </div>
+              
+              {eventDetails.eventLocation && (
+                <div className="event-info-item">
+                  <h3>Where</h3>
+                  <p>{eventDetails.eventLocation}</p>
+                </div>
+              )}
+              
+              <button className="event-register-button">
+                Register Now
+              </button>
+            </div>
+          </div>
         </div>
-      )}
-
-      <div className="event-detail-content">
-        <h2>Event Details</h2>
-        {renderContent(eventDetails.eventDetails)}
       </div>
     </div>
   );
