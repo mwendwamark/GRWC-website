@@ -4,8 +4,7 @@
   "info": {
     "singularName": "church-event",
     "pluralName": "church-events",
-    "displayName": "Church Event",
-    "description": ""
+    "displayName": "Church-event"
   },
   "options": {
     "draftAndPublish": true
@@ -14,25 +13,24 @@
     "eventTitle": {
       "type": "string"
     },
+    "eventDetails": {
+      "type": "blocks"
+    },
+    "eventSummary": {
+      "type": "string"
+    },
     "eventDate": {
       "type": "date"
     },
     "eventCoverImage": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ]
-    },
-    "eventDetails": {
-      "type": "blocks"
-    },
-    "eventSummary": {
-      "type": "blocks"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

@@ -373,6 +373,7 @@ export interface ApiAnnouncementAnnouncement
   extends Struct.CollectionTypeSchema {
   collectionName: 'announcements';
   info: {
+    description: '';
     displayName: 'Announcement';
     pluralName: 'announcements';
     singularName: 'announcement';
@@ -404,8 +405,7 @@ export interface ApiAnnouncementAnnouncement
 export interface ApiChurchEventChurchEvent extends Struct.CollectionTypeSchema {
   collectionName: 'church_events';
   info: {
-    description: '';
-    displayName: 'Church Event';
+    displayName: 'Church-event';
     pluralName: 'church-events';
     singularName: 'church-event';
   };
@@ -421,7 +421,7 @@ export interface ApiChurchEventChurchEvent extends Struct.CollectionTypeSchema {
     >;
     eventDate: Schema.Attribute.Date;
     eventDetails: Schema.Attribute.Blocks;
-    eventSummary: Schema.Attribute.Blocks;
+    eventSummary: Schema.Attribute.String;
     eventTitle: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
