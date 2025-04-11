@@ -87,6 +87,7 @@ import Announcements from "./pages/Announcements/Announcements";
 import Event from "./pages/Event/Event";
 import Announcement from "./pages/Announcement/Announcement";
 import { getFullApiUrl } from "./Utils/apiConfig";
+import NotFound from "./pages/NotFound/NotFound";
 
 const App = () => {
   // Fetch announcements data using environment-based URLs
@@ -134,6 +135,7 @@ const App = () => {
         <Route path="/ministries" element={<Ministries />} />
         <Route path="/contact" element={<Contacts />} />
         <Route path="/donate" element={<Give />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </>
