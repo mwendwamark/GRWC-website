@@ -221,6 +221,15 @@
     }
 }
 
+@media (max-width: 900px) {
+    .footer::after {
+        top: 70%;
+        left: 50%;
+        font-size: 220px;
+        font-weight: 900;
+    }
+}
+
 @media (max-width: 768px) {
     .footer {
         flex-direction: column;
@@ -229,7 +238,7 @@
     }
 
     .footer::after {
-        font-size: 200px;
+        font-size: 160px;
         top: 53%;
         left: 50%;
     }

@@ -11,3 +11,46 @@
     position: relative;
     overflow: hidden;
 }
+
+/* Section Wrappers */
+.section-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Section-specific styling */
+.hero-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+.history-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+.mission-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+.services-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+.ministries-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+.events-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+.contact-wrapper {
+    position: relative;
+    z-index: 1;
+}
