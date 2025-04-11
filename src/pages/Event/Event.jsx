@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./Event.css";
+import { FaRegCalendarAlt } from "react-icons/fa";
 import { getFullApiUrl, getImageUrl } from "../../Utils/apiConfig";
 
 // Helper function to render rich text content
@@ -116,7 +117,7 @@ const Event = () => {
           <div className="event-hero-content">
             <h1 className="event-title">{eventDetails.eventTitle}</h1>
             <div className="event-date-badge">
-              <span className="event-date-icon">📅</span>
+              <span className="event-date-icon"><FaRegCalendarAlt /></span>
               <span>{formatDate(eventDetails.eventDate)}</span>
             </div>
           </div>
