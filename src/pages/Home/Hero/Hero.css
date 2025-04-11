@@ -1,14 +1,14 @@
 .hero-section {
     position: relative;
     width: 100%;
-    height: 600px;
+    height: 800px;
     margin-top: 60px;
+    /* padding-bottom: 100px; */
 }
-
 
 .hero-title {
     position: absolute;
-    top: -10%;
+    top: -7%;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
@@ -49,7 +49,7 @@
 .slide img,
 .video-slide {
     width: 100%;
-    height: 500px;
+    height: 700px;
     object-fit: cover;
 }
 
@@ -92,18 +92,26 @@
 /* RESPONSIVENESS */
 @media (max-width: 768px) {
     .hero-section {
-        height: 400px;
-        margin-top: 70px;
+        height: 600px;
+        margin-top: 50px;
     }
 
     .hero-title {
         position: absolute;
-        top: -11%;
+        top: -7%;
         left: 50%;
     }
 
     .hero-title h1 {
         font-size: 35px;
+    }
+
+    .slide img,
+    .video-slide {
+        height: 600px;
+        transform: scale(1);  /* Start with normal size */
+        transform-origin: center;
+        transition: transform 0.5s ease-in-out;  /* Smooth transition */
     }
 
     .slide-text {

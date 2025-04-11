@@ -55,9 +55,9 @@
 //         <Route path="/branches" element={<Branches />} />
 //         <Route path="/sermons" element={<Sermons />} />
 //         <Route path="/events" element={<Events events={eventsData?.data} />} />
-//         <Route path="/event/:id" element={<Event  />}/>
+//         <Route path="/church-events/:id" element={<Event events={eventsData?.data}  />} />
 //         <Route path="/announcements" element={<Announcements announcements={announcementsData?.data} />} />
-//         <Route path="/announcement" element={<Announcement  />} />
+//         <Route path="/announcement" element={<Announcement />} />
 //         <Route path="/about" element={<About />} />
 //         <Route path="/ministries" element={<Ministries />} />
 //         <Route path="/contact" element={<Contacts />} />
@@ -69,9 +69,8 @@
 // };
 
 // export default App;
-
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/Home/Home";
@@ -87,21 +86,23 @@ import useFetch from "./Hooks/useFetch";
 import Announcements from "./pages/Announcements/Announcements";
 import Event from "./pages/Event/Event";
 import Announcement from "./pages/Announcement/Announcement";
+import { getFullApiUrl } from "./Utils/apiConfig";
+import NotFound from "./pages/NotFound/NotFound";
 
 const App = () => {
-  // Fetch announcements data
+  // Fetch announcements data using environment-based URLs
   const { 
     loading: announcementsLoading, 
     error: announcementsError, 
     data: announcementsData 
-  } = useFetch("http://localhost:1337/api/announcements");
+  } = useFetch(getFullApiUrl("api/announcements"));
   
   // Updated to fetch with the correct endpoint (with query parameters for populating media)
   const { 
     loading: eventsLoading, 
     error: eventsError, 
     data: eventsData 
-  } = useFetch("http://localhost:1337/api/church-events?populate=*");
+  } = useFetch(getFullApiUrl("api/church-events?populate=*"));
 
   // Check if any data is still loading
   if (announcementsLoading || eventsLoading) {
@@ -127,13 +128,14 @@ const App = () => {
         <Route path="/branches" element={<Branches />} />
         <Route path="/sermons" element={<Sermons />} />
         <Route path="/events" element={<Events events={eventsData?.data} />} />
-        <Route path="/church-events/:id" element={<Event events={eventsData?.data}  />} />
+        <Route path="/church-events/:id" element={<Event />} />
         <Route path="/announcements" element={<Announcements announcements={announcementsData?.data} />} />
         <Route path="/announcement" element={<Announcement />} />
         <Route path="/about" element={<About />} />
         <Route path="/ministries" element={<Ministries />} />
         <Route path="/contact" element={<Contacts />} />
         <Route path="/donate" element={<Give />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </>

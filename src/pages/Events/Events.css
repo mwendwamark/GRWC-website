@@ -1,119 +1,3 @@
-/* .events-container {
-  background-color: var(--background-color);
-  padding-bottom: 4rem;
-  max-width: 1000px;
-}
-
-.section-title {
-  font-size: var(--h1-fs);
-  font-weight: 600;
-  color: var(--purple-color);
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.events-page-headers{
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-.events-small-header {
-  font-size: var(--h3-fs);
-  font-weight: 600;
-  text-transform: uppercase;
-  color: var(--purple-color);
-}
-
-.events-small-header::after {
-  content: "";
-  display: inline-block;
-  width: 30px;
-  height: 2px;
-  background-color: var(--purple-color);
-  margin-right: 10px;
-  vertical-align: baseline;
-}
-
-.events-page-big-header {
-  color: var(--title-color) !important;
-  font-weight: 600;
-}
-
-.events-list {
-  display: flex;
-  flex-direction: column;
-  gap: 8rem !important;
-}
-
-.event-date {
-  color: var(--purple-color);
-}
-.event-card {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-}
-
-.event-image-container {
-  width: 400px;
-  object-fit: contain;
-  box-shadow: var(--purple-color) 5px 5px;
-}
-
-.event-image-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.event-info {
-  flex: 1;
-  padding: 1rem;
-}
-
-.event-title {
-  font-size: 1.5rem;
-  font-weight: 500;
-  color: var(--title-color);
-  margin-bottom: 0.5rem;
-}
-
-.event-summary {
-  font-size: 1rem;
-  color: var(--grey-color);
-}
-
-.events-btn {
-  margin-top: 1rem;
-}
-
-.event-card-link {
-  padding: 0.5rem 1rem;
-  border: 2px solid var(--purple-color);
-  color: black;
-  text-decoration: none;
-  border-radius: 5px;
-  font-weight: 400;
-  transition: all 0.3s ease;
-}
-
-.event-card-link:hover {
-  background-color: #f1bfcd;
-}
-
-@media screen and (max-width: 768px) {
-  .event-card {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .event-image-container {
-    width: 100%;
-    height: auto;
-  }
-} */
-
-/* Improved Styles for Events Component */
 .events-container {
   background-color: var(--background-color);
   max-width: 1200px;
@@ -164,7 +48,7 @@
   padding: 2rem;
   border-radius: 1px;
   background: var(--background-color);
-  box-shadow: 0 5px 25px rgba(128, 0, 128, 0.3); /* Lighter purple shadow */
+  box-shadow: 0 5px 25px rgba(128, 0, 128, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .event-card:hover {
@@ -258,7 +142,6 @@
   padding: 4rem 0;
 }
 
-/* Responsive Design */
 @media screen and (max-width: 992px) {
   .event-card {
     grid-template-columns: 1fr;

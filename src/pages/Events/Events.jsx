@@ -1,6 +1,7 @@
 import React from "react";
 import "./Events.css";
 import { NavLink } from "react-router-dom";
+import { getImageUrl } from "../../Utils/apiConfig";
 
 const Events = ({ events }) => {
   // Debug logging
@@ -10,7 +11,6 @@ const Events = ({ events }) => {
 
   return (
     <div className="events-container container ">
-      {/* <h1 className="section-title">Upcoming Events</h1> */}
       <header className="events-page-headers container small-section">
         <h2 className="events-small-header">EVENTS</h2>
         <h1 className="events-page-big-header">UPCOMING EVENTS</h1>
@@ -27,16 +27,19 @@ const Events = ({ events }) => {
 
             // Get image URL if it exists
             let imageUrl = null;
-            if (event.eventCoverImage && event.eventCoverImage.url) {
-              imageUrl = event.eventCoverImage.url;
+            if (
+              event.eventCoverImage && 
+              event.eventCoverImage.url
+            ) {
+              imageUrl = getImageUrl(event.eventCoverImage.url);
             }
 
             return (
-              <div className="event-card">
+              <div key={event.id} className="event-card">
                 {imageUrl && (
                   <div className="event-image-container">
                     <img
-                      src={`http://localhost:1337${imageUrl}`}
+                      src={imageUrl}
                       alt={event.eventTitle}
                       className="event-cover-image"
                     />
@@ -44,26 +47,28 @@ const Events = ({ events }) => {
                 )}
 
                 <div className="event-info">
-                  {" "}
                   <div className="event-meta">
                     <span className="event-date">
                       {new Date(event.eventDate).toLocaleDateString()}
                     </span>
                   </div>
                   <h2 className="events-title">{event.eventTitle}</h2>
-                  {/* <div className="event-summary">{event.eventSummary.children.text}</div> */}
                   <div className="event-summary">
-                    {event.eventSummary?.map((paragraph, index) => (
-                      <p key={index}>
-                        {paragraph.children.map((child, childIndex) => (
-                          <span key={childIndex}>{child.text}</span>
-                        ))}
-                      </p>
-                    ))}
+                    {/* Check if eventSummary is an array that can be mapped, otherwise render as string */}
+                    {Array.isArray(event.eventSummary) ? (
+                      event.eventSummary.map((paragraph, index) => (
+                        <p key={index}>
+                          {paragraph.children.map((child, childIndex) => (
+                            <span key={childIndex}>{child.text}</span>
+                          ))}
+                        </p>
+                      ))
+                    ) : (
+                      <p>{event.eventSummary}</p>
+                    )}
                   </div>
                   <div className="events-btn">
                     <NavLink
-                      key={event.documentId}
                       to={`/church-events/${event.documentId}`}
                       className="event-card-link"
                     >

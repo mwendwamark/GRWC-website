@@ -4,7 +4,8 @@
   "info": {
     "singularName": "announcement",
     "pluralName": "announcements",
-    "displayName": "Announcement"
+    "displayName": "Announcement",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -13,14 +14,14 @@
     "announcementTitle": {
       "type": "string"
     },
-    "announcementContent": {
-      "type": "blocks"
-    },
     "announcementDate": {
       "type": "date"
     },
     "author": {
       "type": "string"
+    },
+    "announcementContent": {
+      "type": "blocks"
     }
   }
 }

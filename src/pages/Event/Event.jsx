@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./Event.css";
+import { FaRegCalendarAlt } from "react-icons/fa";
+import { getFullApiUrl, getImageUrl } from "../../Utils/apiConfig";
 
 // Helper function to render rich text content
 const renderContent = (content) => {
@@ -58,7 +60,7 @@ const Event = () => {
       try {
         setLoading(true);
         const response = await fetch(
-          `http://localhost:1337/api/church-events/${id}?populate=*`
+          getFullApiUrl(`api/church-events/${id}?populate=*`)
         );
 
         if (!response.ok) {
@@ -97,10 +99,9 @@ const Event = () => {
   if (
     event &&
     event.eventCoverImage &&
-    event.eventCoverImage &&
     event.eventCoverImage.url
   ) {
-    imageUrl = event.eventCoverImage.url;
+    imageUrl = getImageUrl(event.eventCoverImage.url);
   }
 
   // Format the date in a more readable way
@@ -111,12 +112,12 @@ const Event = () => {
 
   return (
     <div className="event-page">
-      <div className="event-hero" style={{backgroundImage: imageUrl ? `url(http://localhost:1337${imageUrl})` : 'none'}}>
+      <div className="event-hero" style={{backgroundImage: imageUrl ? `url(${imageUrl})` : 'none'}}>
         <div className="event-hero-overlay">
           <div className="event-hero-content">
             <h1 className="event-title">{eventDetails.eventTitle}</h1>
             <div className="event-date-badge">
-              <span className="event-date-icon">📅</span>
+              <span className="event-date-icon"><FaRegCalendarAlt /></span>
               <span>{formatDate(eventDetails.eventDate)}</span>
             </div>
           </div>
