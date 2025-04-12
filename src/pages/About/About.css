@@ -1,84 +1,324 @@
-.about-page {
-  background-color: var(--background-color);
-  padding: 4rem 0;
+/* About.css */
+
+/* Hero Section */
+.about-hero {
+  background-color: rgba(0, 0, 0, 0.5); /* Overlay to make text more visible */
+  position: relative;
+  text-align: left;
+  padding: 300px 0;
+  width: 100%;
+  overflow: hidden;
 }
 
-.about-hero {
-  height: 400px;
+.about-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(../../assets/aboutImage2.jpg);
   background-size: cover;
   background-position: center;
-  position: relative;
+  z-index: -1;
+  filter: brightness(0.7); /* Makes the image darker so text is more visible */
 }
 
-.about-hero-overlay {
-  background: rgba(0, 0, 0, 0.5);
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
+.about-hero .container {
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .about-hero-title {
-  font-size: 3.5rem;
-  margin-bottom: 1rem;
+  font-size: var(--h1-fs);
+  font-weight: var(--h1-fw);
+  margin-bottom: 20px;
+  color: white; /* Changed to white for visibility on dark background */
+  letter-spacing: 2.2px;
 }
 
-.about-hero-subtitle {
-  font-size: 1.5rem;
-}
-
-.about-content-section {
-  margin: 4rem 0;
-}
-
-.about-content {
+.about-hero-content {
   max-width: 800px;
-  margin: 0 auto;
+  font-size: var(--text-size);
+  color: white; /* Changed to white for visibility */
+  margin-bottom: 30px;
+  line-height: 28px;
 }
 
-.about-grid-section {
-  margin: 4rem 0;
+.about-hero-buttons {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
 }
 
-.about-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+.btn {
+  display: inline-block;
+  padding: 20px 30px;
+  border-radius: 4px;
+  font-weight: var(--text-bold);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
 }
 
-.about-grid-item {
-  background: white;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+.btn-primary {
+  background-color: var(--purple-color);
+  color: white;
+  border: 2px solid var(--purple-color);
 }
 
-.about-grid-content {
-  margin-top: 1rem;
+.btn-primary:hover {
+  opacity: 0.8;
 }
 
-.about-history-section {
-  margin: 4rem 0;
+.transparent-btn {
+  background-color: transparent;
+  color: white; /* Changed for visibility */
+  border: 2px solid white; /* Changed for visibility */
 }
 
-.about-timeline {
-  max-width: 800px;
-  margin: 0 auto;
+.transparent-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Community Section */
+.community-section {
   position: relative;
-  padding: 2rem 0;
+  height: 600px;
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 60px; /* Added for spacing */
+  padding-bottom: 60px; /* Added for spacing */
 }
 
-@media screen and (max-width: 768px) {
+.community-image {
+  width: 55%;
+  height: 100%;
+  position: relative;
+}
+
+.community-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.community-content {
+  position: absolute;
+  right: 10%;
+  top: 70%;
+  border: 1px solid var(--light-pink);
+  transform: translateY(-50%);
+  background-color: var(--background-color);
+  padding: 70px;
+  width: 46%;
+  z-index: 2;
+}
+
+.content-divider {
+  width: 50px;
+  height: 3px;
+  background-color: var(--purple-color);
+  margin-bottom: 20px;
+}
+
+.community-title {
+  font-size: var(--h1-fs);
+  font-weight: var(--h1-fw);
+  margin-bottom: 20px;
+  line-height: 1.2;
+  color: var(--title-color);
+}
+
+.community-description {
+  font-size: var(--text-size);
+  line-height: 1.7;
+  color: var(--text-color);
+}
+
+/* Mission and Values Section */
+.mission-values {
+  background-color: var(--background-color);
+  padding: 80px 0;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.mission-values .container {
+  display: flex;
+  gap: 40px;
+}
+
+.mission-box, .values-box {
+  flex: 1;
+  padding: 30px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.mission-box h3, .values-box h3 {
+  font-size: var(--h3-fs);
+  margin-bottom: 20px;
+  color: var(--purple-color);
+  font-weight: var(--h1-fw);
+}
+
+.mission-box p {
+  color: var(--text-color);
+  font-size: var(--text-size);
+}
+
+.values-box ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.values-box li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--light-pink);
+  color: var(--text-color);
+  font-size: var(--text-size);
+}
+
+.values-box li:last-child {
+  border-bottom: none;
+}
+
+/* Join Us Section */
+.join-us {
+  background-color: var(--purple-color);
+  color: white;
+  text-align: center;
+  padding: 80px 0;
+  width: 100%;
+}
+
+.join-us .container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.join-us h2 {
+  font-size: var(--h2-fs);
+  margin-bottom: 20px;
+  font-weight: var(--h1-fw);
+}
+
+.join-us p {
+  max-width: 700px;
+  margin: 0 auto 30px;
+  font-size: var(--text-size);
+}
+
+.btn-cta {
+  background-color: white;
+  color: var(--purple-color);
+  border: 2px solid white;
+  font-size: var(--text-size);
+  padding: 14px 34px;
+}
+
+.btn-cta:hover {
+  background-color: transparent;
+  color: white;
+}
+
+/* Section spacing classes */
+.section {
+  margin-top: 9rem;
+}
+
+.small-section {
+  margin-top: 7rem;
+}
+
+.section-bottom {
+  padding-bottom: 9rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .community-section {
+    position: relative;
+    margin: 30px auto;
+    height: auto;
+  }
+  
+  .community-image {
+    width: 100%;
+    height: 400px;
+  }
+  
+  .community-content {
+    position: relative;
+    width: 90%;
+    max-width: 600px;
+    margin: -80px auto 0;
+    transform: none;
+    top: auto;
+    right: auto;
+  }
+  
+  .mission-values .container {
+    flex-direction: column;
+  }
+  
   .about-hero-title {
-    font-size: 2.5rem;
+    font-size: calc(var(--h1-fs) - 0.5rem);
   }
   
-  .about-hero-subtitle {
-    font-size: 1.2rem;
+  .community-title {
+    font-size: calc(var(--h2-fs) - 0.2rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .about-hero {
+    padding: 80px 0;
   }
   
-  .about-grid {
-    grid-template-columns: 1fr;
+  .about-hero-buttons {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .btn {
+    width: 100%;
+    max-width: 250px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .community-content {
+    padding: 30px;
+  }
+  
+  .about-hero .container,
+  .community-section,
+  .mission-values,
+  .join-us .container {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .about-hero {
+    padding: 60px 0;
+  }
+  
+  .about-hero-title {
+    font-size: 1.8rem;
+  }
+  
+  .community-title {
+    font-size: 1.6rem;
+  }
+  
+  .join-us h2 {
+    font-size: 1.8rem;
   }
 }

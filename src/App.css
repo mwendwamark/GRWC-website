@@ -73,6 +73,10 @@ input {
   margin-top: 7rem;
 }
 
+.section-bottom {
+  padding-bottom: 9rem;
+}
+
 .construction-div {
   display: flex;
   flex-direction: column;

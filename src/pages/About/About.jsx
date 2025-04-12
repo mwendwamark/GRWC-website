@@ -1,73 +1,96 @@
-import React from 'react';
-import './About.css';
-import { getImageUrl } from '../../Utils/apiConfig';
-
-const About = ({ aboutData }) => {
-  const { 
-    title = 'About Us',
-    subtitle = 'Our Story',
-    content = 'Welcome to our church community. We are dedicated to spreading love and faith.',
-    vision = 'Our Vision',
-    mission = 'Our Mission',
-    values = 'Our Values',
-    history = 'Our History',
-    image = null
-  } = aboutData || {};
-
+import React from "react";
+import "./About.css";
+import { NavLink } from "react-router-dom";
+import { Helmet } from "react-helmet";
+import image from "../../assets/aboutImage2.jpg";
+import Shapes from "../../components/Shapes/Shapes"
+const About = () => {
   return (
-    <div className="about-page">
+    <>
+      <Helmet>
+        <title>About Us | Church Name</title>
+        <meta name="description" content="Learn about our church community, mission, and values." />
+      </Helmet>
+      
       {/* Hero Section */}
-      <div className="about-hero" style={{ backgroundImage: image ? `url(${getImageUrl(image.url)})` : 'none' }}>
-        <div className="about-hero-overlay">
-          <div className="container">
-            <h1 className="about-hero-title">{title}</h1>
-            <p className="about-hero-subtitle">{subtitle}</p>
+      <section className="about-hero section">
+        <div className="container">
+          <h1 className="about-hero-title">About Us</h1>
+          <p className="about-hero-content">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
+            explicabo quia voluptate, provident quod quisquam, quas ipsum
+            asperiores laborum iste sunt expedita esse cum temporibus suscipit
+            voluptas perspiciatis debitis eligendi magnam commodi consequuntur.
+          </p>
+          <div className="about-hero-buttons">
+            <NavLink to="/sermons" className="btn btn-primary">
+              Sermons
+            </NavLink>
+            <NavLink to="/pastors" className="btn transparent-btn">
+              Our Pastors
+            </NavLink>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Main Content */}
-      <div className="container">
-        {/* Content Section */}
-        <section className="about-content-section">
-          <div className="about-content">
-            <div dangerouslySetInnerHTML={{ __html: content }} />
-          </div>
-        </section>
+      {/* Community Section */}
+      <section className="community-section section">
+        <Shapes/>
+        <div className="community-image">
+          <img src={image} alt="Church Community" className="community-photo" />
+        </div>
+        <div className="community-content">
+          <div className="content-divider"></div>
+          <h2 className="community-title">
+            In our church we trust in the strength of God's love
+          </h2>
+          <p className="community-description">
+            Our community is built on the foundation of faith, hope, and love.
+            We gather together to support one another, grow spiritually, and
+            share God's message with the world around us.
+          </p>
+        </div>
+      </section>
 
-        {/* Vision, Mission, Values Grid */}
-        <section className="about-grid-section">
-          <div className="about-grid">
-            <div className="about-grid-item">
-              <h3>{vision}</h3>
-              <div className="about-grid-content">
-                <p>Our vision is to be a beacon of light in our community, spreading love, hope, and faith to all who seek it.</p>
-              </div>
-            </div>
-            <div className="about-grid-item">
-              <h3>{mission}</h3>
-              <div className="about-grid-content">
-                <p>Our mission is to create a welcoming and inclusive community where people can grow in their faith and serve others.</p>
-              </div>
-            </div>
-            <div className="about-grid-item">
-              <h3>{values}</h3>
-              <div className="about-grid-content">
-                <p>Our core values include love, compassion, integrity, and community service.</p>
-              </div>
-            </div>
+      {/* Mission and Values Section */}
+      <section className="mission-values section">
+        <div className="container">
+          <div className="mission-box">
+            <h3>Our Mission</h3>
+            <p>
+              To create a welcoming community where people can experience God's
+              love, grow in their faith, and be equipped to serve others in
+              Christ's name.
+            </p>
           </div>
-        </section>
+          <div className="values-box">
+            <h3>Our Values</h3>
+            <ul>
+              <li>Biblical Teaching</li>
+              <li>Authentic Community</li>
+              <li>Compassionate Service</li>
+              <li>Inclusive Worship</li>
+              <li>Purposeful Discipleship</li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
-        {/* History Section */}
-        <section className="about-history-section">
-          <h2>{history}</h2>
-          <div className="about-timeline">
-            {/* Timeline items will be populated from data */}
-          </div>
-        </section>
-      </div>
-    </div>
+      {/* Join Us Section */}
+      <section className="join-us section">
+        <div className="container">
+          <h2>Join Us This Sunday</h2>
+          <p>
+            We'd love to have you join us for worship. Our services are designed
+            to be welcoming to all, regardless of where you are on your
+            spiritual journey.
+          </p>
+          <NavLink to="/visit" className="btn btn-cta">
+            Plan Your Visit
+          </NavLink>
+        </div>
+      </section>
+    </>
   );
 };
 
