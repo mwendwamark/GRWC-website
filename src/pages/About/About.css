@@ -2,7 +2,7 @@
 
 /* Hero Section */
 .about-hero {
-  background-color: rgba(0, 0, 0, 0.5); /* Overlay to make text more visible */
+  background-color: rgba(0, 0, 0, 0.5);
   position: relative;
   text-align: left;
   padding: 300px 0;
@@ -21,7 +21,7 @@
   background-size: cover;
   background-position: center;
   z-index: -1;
-  filter: brightness(0.7); /* Makes the image darker so text is more visible */
+  filter: brightness(0.7);
 }
 
 .about-hero .container {
@@ -35,14 +35,14 @@
   font-size: var(--h1-fs);
   font-weight: var(--h1-fw);
   margin-bottom: 20px;
-  color: white; /* Changed to white for visibility on dark background */
+  color: white;
   letter-spacing: 2.2px;
 }
 
 .about-hero-content {
   max-width: 800px;
   font-size: var(--text-size);
-  color: white; /* Changed to white for visibility */
+  color: white;
   margin-bottom: 30px;
   line-height: 28px;
 }
@@ -56,7 +56,6 @@
 .btn {
   display: inline-block;
   padding: 20px 30px;
-  border-radius: 4px;
   font-weight: var(--text-bold);
   text-decoration: none;
   transition: all 0.3s ease;
@@ -67,30 +66,148 @@
   background-color: var(--purple-color);
   color: white;
   border: 2px solid var(--purple-color);
+  transition: 0.6s linear;
 }
 
 .btn-primary:hover {
-  opacity: 0.8;
+  color: var(--purple-color);
+  background-color: var(--background-color);
+  border: 2px solid var(--background-color);
+  outline: 2px solid var(--background-color);
+  outline-offset: 2px;
 }
 
 .transparent-btn {
   background-color: transparent;
-  color: white; /* Changed for visibility */
-  border: 2px solid white; /* Changed for visibility */
+  color: white;
+  border: 2px solid white;
 }
 
 .transparent-btn:hover {
   background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid var(--purple-color);
+  outline: 2px solid var(--purple-color);
+  outline-offset: 2px;
+}
+
+/* Trust Section - Now with overlapping content like community section */
+.trust-section {
+  position: relative;
+  height: 700px;
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  margin-top: 120px; /* Increased spacing */
+  margin-bottom: 120px; /* Increased spacing */
+}
+
+.trust-image {
+  width: 55%;
+  height: 100%;
+  position: relative;
+}
+
+.trust-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.trust-content {
+  position: absolute;
+  right: 10%;
+  top: 50%;
+  /* border: 1px solid var(--light-pink); */
+  transform: translateY(-50%);
+  background-color: var(--background-color);
+  padding: 70px;
+  width: 46%;
+  z-index: 2;
+}
+
+.trust-title {
+  font-size: var(--h1-fs);
+  font-weight: var(--h1-fw);
+  margin-bottom: 20px;
+  line-height: 1.2;
+  color: var(--title-color);
+}
+
+.trust-description {
+  font-size: var(--text-size);
+  line-height: 1.7;
+  color: var(--text-color);
+}
+
+/* Section Divider */
+.section-divider {
+  width: 80%;
+  margin: 100px auto; /* Increased spacing */
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Mission Section - This matches the second image in your example */
+.dark-container-mission,
+.dark-container-vision {
+  background-color: var(--light-pink);
+  padding: 50px;
+}
+.mission-section {
+  width: 90%;
+  max-width: 1200px;
+  margin: 120px auto; /* Increased spacing */
+}
+
+.mission-container {
+  display: flex;
+  flex-direction: row;
+  gap: 60px; /* Increased gap */
+  align-items: center;
+}
+
+.mission-content {
+  flex: 1;
+  padding: 20px;
+}
+
+.mission-content h2 {
+  font-size: var(--h1-fs);
+  font-weight: var(--h1-fw);
+  margin-bottom: 20px;
+  color: var(--title-color);
+}
+
+.mission-content p {
+  font-size: var(--text-size);
+  line-height: 1.7;
+  color: var(--text-color);
+  margin-bottom: 20px;
+}
+
+.mission-image {
+  flex: 1;
+  max-width: 50%;
+}
+
+.mission-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
 }
 
 /* Community Section */
 .community-section {
   position: relative;
-  height: 600px;
+  height: 700px;
   width: 80%;
-  margin: 0 auto;
-  padding-top: 60px; /* Added for spacing */
-  padding-bottom: 60px; /* Added for spacing */
+  margin: 120px auto; /* Increased spacing */
+  padding-top: 60px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .community-image {
@@ -109,8 +226,8 @@
 .community-content {
   position: absolute;
   right: 10%;
-  top: 70%;
-  border: 1px solid var(--light-pink);
+  top: 50%;
+  /* border: 1px solid var(--light-pink); */
   transform: translateY(-50%);
   background-color: var(--background-color);
   padding: 70px;
@@ -144,7 +261,7 @@
   background-color: var(--background-color);
   padding: 80px 0;
   width: 80%;
-  margin: 0 auto;
+  margin: 120px auto; /* Increased spacing */
 }
 
 .mission-values .container {
@@ -152,15 +269,17 @@
   gap: 40px;
 }
 
-.mission-box, .values-box {
+.mission-box,
+.values-box {
   flex: 1;
-  padding: 30px;
+  padding: 40px; /* Increased padding */
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
-.mission-box h3, .values-box h3 {
+.mission-box h3,
+.values-box h3 {
   font-size: var(--h3-fs);
   margin-bottom: 20px;
   color: var(--purple-color);
@@ -178,7 +297,7 @@
 }
 
 .values-box li {
-  padding: 8px 0;
+  padding: 12px 0; /* Increased padding */
   border-bottom: 1px solid var(--light-pink);
   color: var(--text-color);
   font-size: var(--text-size);
@@ -193,8 +312,9 @@
   background-color: var(--purple-color);
   color: white;
   text-align: center;
-  padding: 80px 0;
+  padding: 100px 0; /* Increased padding */
   width: 100%;
+  /* margin-top: 120px; Increased spacing */
 }
 
 .join-us .container {
@@ -204,13 +324,13 @@
 
 .join-us h2 {
   font-size: var(--h2-fs);
-  margin-bottom: 20px;
+  margin-bottom: 30px; /* Increased spacing */
   font-weight: var(--h1-fw);
 }
 
 .join-us p {
   max-width: 700px;
-  margin: 0 auto 30px;
+  margin: 0 auto 40px; /* Increased spacing */
   font-size: var(--text-size);
 }
 
@@ -219,7 +339,7 @@
   color: var(--purple-color);
   border: 2px solid white;
   font-size: var(--text-size);
-  padding: 14px 34px;
+  padding: 16px 38px; /* Increased padding */
 }
 
 .btn-cta:hover {
@@ -229,30 +349,57 @@
 
 /* Section spacing classes */
 .section {
-  margin-top: 9rem;
+  margin-top: 12rem; /* Increased from 9rem */
 }
 
 .small-section {
-  margin-top: 7rem;
+  margin-top: 8rem; /* Increased from 7rem */
 }
 
 .section-bottom {
-  padding-bottom: 9rem;
+  padding-bottom: 12rem; /* Increased from 9rem */
 }
 
+@media (max-width: 1500px){
+  .trust-content,
+  .community-content {
+    position: absolute;
+    right: 10%;
+    top: 50%;
+  }
+}
 /* Responsive Styles */
 @media (max-width: 1200px) {
+  .mission-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mission-image {
+    max-width: 100%;
+    order: 1;
+  }
+
+  .mission-content {
+    order: 2;
+    width: 100%;
+    padding: 30px 20px;
+  }
+
+  .trust-section,
   .community-section {
     position: relative;
-    margin: 30px auto;
+    margin: 60px auto;
     height: auto;
   }
-  
+
+  .trust-image,
   .community-image {
     width: 100%;
     height: 400px;
   }
-  
+
+  .trust-content,
   .community-content {
     position: relative;
     width: 90%;
@@ -261,47 +408,65 @@
     transform: none;
     top: auto;
     right: auto;
+    padding: 40px;
   }
-  
+
   .mission-values .container {
     flex-direction: column;
   }
-  
+
   .about-hero-title {
     font-size: calc(var(--h1-fs) - 0.5rem);
   }
-  
-  .community-title {
+
+  .community-title,
+  .trust-title {
     font-size: calc(var(--h2-fs) - 0.2rem);
+  }
+
+  .section {
+    margin-top: 8rem;
   }
 }
 
 @media (max-width: 768px) {
   .about-hero {
-    padding: 80px 0;
+    padding: 120px 0;
   }
-  
+
   .about-hero-buttons {
     flex-direction: column;
     align-items: flex-start;
   }
-  
+
   .btn {
     width: 100%;
     max-width: 250px;
     margin-bottom: 10px;
     text-align: center;
   }
-  
+
+  .trust-content,
   .community-content {
     padding: 30px;
   }
-  
+
   .about-hero .container,
+  .trust-section,
   .community-section,
   .mission-values,
   .join-us .container {
     width: 90%;
+  }
+
+  .section-divider {
+    margin: 60px auto;
+  }
+
+  .dark-container-mission,
+  .dark-container-vision {
+    background-color: var(--light-pink);
+    padding: 20px;
   }
 }
 
@@ -309,16 +474,34 @@
   .about-hero {
     padding: 60px 0;
   }
-  
+
   .about-hero-title {
     font-size: 1.8rem;
   }
-  
-  .community-title {
+
+  .community-title,
+  .trust-title,
+  .mission-content h2 {
     font-size: 1.6rem;
   }
-  
+
   .join-us h2 {
     font-size: 1.8rem;
+  }
+
+  .trust-content,
+  .community-content,
+  .mission-content {
+    padding: 20px 15px;
+  }
+
+  .section {
+    margin-top: 6rem;
+  }
+
+  .dark-container-mission,
+  .dark-container-vision {
+    background-color: var(--light-pink);
+    padding: 5px;
   }
 }

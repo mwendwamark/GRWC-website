@@ -2,16 +2,24 @@ import React from "react";
 import "./About.css";
 import { NavLink } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import image from "../../assets/aboutImage2.jpg";
-import Shapes from "../../components/Shapes/Shapes"
+import communityImage from "../../assets/aboutImage2.jpg";
+import bibleImage from "../../assets/bible-image.jpg"; // You'll need this image
+import churchGroupImage from "../../assets/church-group.jpg"; // You'll need this image
+import Shapes from "../../components/Shapes/Shapes";
+import Leaders from "./Leaders/Leaders";
+import { GoArrowUpRight } from "react-icons/go";
+
 const About = () => {
   return (
     <>
       <Helmet>
-        <title>About Us | Church Name</title>
-        <meta name="description" content="Learn about our church community, mission, and values." />
+        <title>About Us | Gospel Revival Wave Church</title>
+        <meta
+          name="description"
+          content="Learn about our church community, mission, and values."
+        />
       </Helmet>
-      
+
       {/* Hero Section */}
       <section className="about-hero section">
         <div className="container">
@@ -24,25 +32,83 @@ const About = () => {
           </p>
           <div className="about-hero-buttons">
             <NavLink to="/sermons" className="btn btn-primary">
-              Sermons
+              Sermons <GoArrowUpRight />
             </NavLink>
-            <NavLink to="/pastors" className="btn transparent-btn">
+            <a href="#leaders" className="btn transparent-btn">
               Our Pastors
-            </NavLink>
+            </a>
           </div>
         </div>
       </section>
 
-      {/* Community Section */}
+      {/* Church Trust Section - Now with overlapping content */}
+      <section className="trust-section section">
+        <Shapes />
+        <div className="trust-image">
+          <img
+            src={churchGroupImage}
+            alt="Church community praying together"
+            className="trust-photo"
+            loading="lazy"
+          />
+        </div>
+        <div className="trust-content">
+          <div className="content-divider"></div>
+          <h2 className="trust-title">
+            In our church we trust in the strength of God's love
+          </h2>
+          <p className="trust-description">
+            Lorem ipsum dolor sit amet consectetur adipiscing elit urna vitae ac
+            vitae lacus ac proin ultricies eleifend dui ut felis bibendum ut
+            amet nunc turpis diam urna quam congue.
+          </p>
+        </div>
+      </section>
+
+      <hr className="section-divider" />
+
+      {/* Mission Section - This matches the second image layout */}
+      <section className="dark-container-mission section">
+        <div className="mission-section ">
+          <div className="mission-container">
+            <div className="mission-content">
+              <div className="divider"></div>
+              <h2>Our mission</h2>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat duis aute irure dolor.
+              </p>
+              <p>
+                Tempus quam pellentesque nec nam aliquam sem et est velit
+                egestas dui id ornare. Nisi condimentum id venenatis a
+                condimentum vitae sapien. Id cursus metus aliquam eleifend mi
+                in.
+              </p>
+            </div>
+            <div className="mission-image">
+              <img src={bibleImage} alt="Bible study" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Community Section - Original from your code */}
       <section className="community-section section">
-        <Shapes/>
+        <Shapes />
         <div className="community-image">
-          <img src={image} alt="Church Community" className="community-photo" />
+          <img
+            src={communityImage}
+            alt="Church Community"
+            className="community-photo"
+            loading="lazy"
+          />
         </div>
         <div className="community-content">
           <div className="content-divider"></div>
           <h2 className="community-title">
-            In our church we trust in the strength of God's love
+            We foster a community built on faith and fellowship
           </h2>
           <p className="community-description">
             Our community is built on the foundation of faith, hope, and love.
@@ -52,32 +118,40 @@ const About = () => {
         </div>
       </section>
 
-      {/* Mission and Values Section */}
-      <section className="mission-values section">
-        <div className="container">
-          <div className="mission-box">
-            <h3>Our Mission</h3>
-            <p>
-              To create a welcoming community where people can experience God's
-              love, grow in their faith, and be equipped to serve others in
-              Christ's name.
-            </p>
-          </div>
-          <div className="values-box">
-            <h3>Our Values</h3>
-            <ul>
-              <li>Biblical Teaching</li>
-              <li>Authentic Community</li>
-              <li>Compassionate Service</li>
-              <li>Inclusive Worship</li>
-              <li>Purposeful Discipleship</li>
-            </ul>
+      {/* <hr className="section-divider" /> */}
+
+      <section className="dark-container-vision  section">
+        <div className="mission-section">
+          <div className="mission-container">
+            <div className="mission-content">
+              <div className="divider"></div>
+              <h2>Our vision</h2>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat duis aute irure dolor.
+              </p>
+              <p>
+                Tempus quam pellentesque nec nam aliquam sem et est velit
+                egestas dui id ornare. Nisi condimentum id venenatis a
+                condimentum vitae sapien. Id cursus metus aliquam eleifend mi
+                in.
+              </p>
+            </div>
+            <div className="mission-image">
+              <img src={bibleImage} alt="Bible study" loading="lazy" />
+            </div>
           </div>
         </div>
       </section>
 
+      {/* Mission and Values Section */}
+      <section className="leaders_and_pastors-section" id="leaders">
+        <Leaders />
+      </section>
       {/* Join Us Section */}
-      <section className="join-us section">
+      <section className="join-us section-bottom">
         <div className="container">
           <h2>Join Us This Sunday</h2>
           <p>

@@ -58,6 +58,9 @@ input {
   outline: none;
 }
 
+html {
+  scroll-behavior: smooth;
+}
 .container {
   padding: 0;
   margin-left: auto;
