@@ -3,47 +3,66 @@ import "./Events.css";
 import { NavLink } from "react-router-dom";
 import { getImageUrl } from "../../Utils/apiConfig";
 import { Helmet } from "react-helmet";
+import { IoCalendarOutline } from "react-icons/io5";
+import { FaRegClock } from "react-icons/fa";
 
 const Events = ({ events }) => {
-  // Debug logging
-  console.log("Events in component:", events);
-
   const eventsArray = Array.isArray(events) ? events : [];
 
   return (
     <>
       <Helmet>
         <title>Events | Gospel Revival Wave Church</title>
-        <meta name="description" content="Stay up to date with upcoming church events at Gospel Revival Wave Church. Join us in worship, fellowship, and service!" />
-        <meta property="og:title" content="Events | Gospel Revival Wave Church" />
-        <meta property="og:description" content="Stay up to date with upcoming church events at Gospel Revival Wave Church. Join us in worship, fellowship, and service!" />
+        <meta
+          name="description"
+          content="Stay up to date with upcoming church events at Gospel Revival Wave Church. Join us in worship, fellowship, and service!"
+        />
+        <meta
+          property="og:title"
+          content="Events | Gospel Revival Wave Church"
+        />
+        <meta
+          property="og:description"
+          content="Stay up to date with upcoming church events at Gospel Revival Wave Church. Join us in worship, fellowship, and service!"
+        />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://grwc.vercel.app/events" />
         <link rel="canonical" href="https://grwc.vercel.app/events" />
       </Helmet>
-      <div className="events-container container ">
-        <header className="events-page-headers container small-section">
-          <h2 className="events-small-header">EVENTS</h2>
-          <h1 className="events-page-big-header">UPCOMING EVENTS</h1>
+
+      <div className="events-container">
+        <header className="events-page-headers">
+          <h2 className="events-page-big-header">
+            You are all welcomed to participate in the church events!
+          </h2>
         </header>
 
-        {/* Events list */}
         <div className="events-list">
           {eventsArray.length === 0 ? (
             <p className="no-events">No upcoming events at this time.</p>
           ) : (
             eventsArray.map((event) => {
-              // Debug logging for individual event
-              console.log("Event data:", event);
+              let imageUrl = event.eventCoverImage?.url
+                ? getImageUrl(event.eventCoverImage.url)
+                : null;
 
-              // Get image URL if it exists
-              let imageUrl = null;
-              if (
-                event.eventCoverImage && 
-                event.eventCoverImage.url
-              ) {
-                imageUrl = getImageUrl(event.eventCoverImage.url);
-              }
+              // Format date for display
+              const eventDate = new Date(event.eventDate);
+              const formattedDay = new Intl.DateTimeFormat("en-US", {
+                weekday: "long",
+              })
+                .format(eventDate)
+                .toUpperCase();
+              const formattedTime = new Intl.DateTimeFormat("en-US", {
+                hour: "numeric",
+                minute: "numeric",
+                hour12: true,
+              }).format(eventDate);
+              const formattedDate = eventDate.toLocaleDateString("en-US", {
+                month: "2-digit",
+                day: "2-digit",
+                year: "numeric",
+              });
 
               return (
                 <div key={event.id} className="event-card">
@@ -59,13 +78,23 @@ const Events = ({ events }) => {
 
                   <div className="event-info">
                     <div className="event-meta">
-                      <span className="event-date">
-                        {new Date(event.eventDate).toLocaleDateString()}
-                      </span>
+                      <div className="event-datetime-section">
+                        <div className="event-date">
+                          <IoCalendarOutline className="event-icon" />
+                          <span className="event-day">{formattedDay}</span>
+                          <span>{formattedDate}</span>
+                        </div>
+
+                        <div className="event-time">
+                          <FaRegClock className="event-icon" />
+                          <span>{formattedTime}</span>
+                        </div>
+                      </div>
                     </div>
+
                     <h2 className="events-title">{event.eventTitle}</h2>
+
                     <div className="event-summary">
-                      {/* Check if eventSummary is an array that can be mapped, otherwise render as string */}
                       {Array.isArray(event.eventSummary) ? (
                         event.eventSummary.map((paragraph, index) => (
                           <p key={index}>
@@ -75,15 +104,19 @@ const Events = ({ events }) => {
                           </p>
                         ))
                       ) : (
-                        <p>{event.eventSummary}</p>
+                        <p>
+                          {event.eventSummary ||
+                            "Lorem ipsum dolor sit amet consectetur adipiscing elit urna vitae ac vitae lacus ac proin ultricies."}
+                        </p>
                       )}
                     </div>
+
                     <div className="events-btn">
                       <NavLink
                         to={`/church-events/${event.documentId}`}
                         className="event-card-link"
                       >
-                        See more
+                        MORE INFORMATION
                       </NavLink>
                     </div>
                   </div>
