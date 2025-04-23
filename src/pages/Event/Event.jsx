@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./Event.css";
-import { FaRegCalendarAlt, FaMapMarkerAlt, FaUser } from "react-icons/fa";
+import {
+  FaRegCalendarAlt,
+  FaMapMarkerAlt,
+  FaUser,
+  FaRegClock,
+} from "react-icons/fa";
+import { Helmet } from "react-helmet"; // Import React Helmet
 import { getFullApiUrl, getImageUrl } from "../../Utils/apiConfig";
 
 const renderContent = (content) => {
@@ -15,15 +21,16 @@ const renderContent = (content) => {
           <ListTag key={index} className="event-content-list">
             {block.children.map((item, itemIndex) => (
               <li key={itemIndex}>
-                {item.children && item.children.map((text, textIndex) => (
-                  <span
-                    key={textIndex}
-                    className={text.bold ? "bold-text" : ""}
-                    style={text.bold ? { fontWeight: 700 } : {}}
-                  >
-                    {text.text}
-                  </span>
-                ))}
+                {item.children &&
+                  item.children.map((text, textIndex) => (
+                    <span
+                      key={textIndex}
+                      className={text.bold ? "bold-text" : ""}
+                      style={text.bold ? { fontWeight: 700 } : {}}
+                    >
+                      {text.text}
+                    </span>
+                  ))}
               </li>
             ))}
           </ListTag>
@@ -32,15 +39,16 @@ const renderContent = (content) => {
       case "paragraph":
         return (
           <p key={index} className="event-content-paragraph">
-            {block.children && block.children.map((text, textIndex) => (
-              <span
-                key={textIndex}
-                className={text.bold ? "bold-text" : ""}
-                style={text.bold ? { fontWeight: 700 } : {}}
-              >
-                {text.text}
-              </span>
-            ))}
+            {block.children &&
+              block.children.map((text, textIndex) => (
+                <span
+                  key={textIndex}
+                  className={text.bold ? "bold-text" : ""}
+                  style={text.bold ? { fontWeight: 700 } : {}}
+                >
+                  {text.text}
+                </span>
+              ))}
           </p>
         );
 
@@ -85,7 +93,11 @@ const Event = () => {
   }, [id]);
 
   if (loading)
-    return <div className="loading-container"><div className="loading-spinner"></div></div>;
+    return (
+      <div className="loading-container">
+        <div className="loading-spinner"></div>
+      </div>
+    );
   if (error) return <div className="error-container">Error: {error}</div>;
   if (!event) return <div className="not-found-container">Event not found</div>;
 
@@ -97,98 +109,146 @@ const Event = () => {
 
   // Get image URL if it exists
   let imageUrl = null;
-  if (
-    event &&
-    event.eventCoverImage &&
-    event.eventCoverImage.url
-  ) {
+  if (event && event.eventCoverImage && event.eventCoverImage.url) {
     imageUrl = getImageUrl(event.eventCoverImage.url);
   }
 
   // Get event leader image if it exists
   let leaderImageUrl = null;
-  if (
-    event &&
-    event.eventLeaderImage &&
-    event.eventLeaderImage.url
-  ) {
+  if (event && event.eventLeaderImage && event.eventLeaderImage.url) {
     leaderImageUrl = getImageUrl(event.eventLeaderImage.url);
   }
 
   // Format the date in a more readable way
   const formatDate = (dateString) => {
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const options = { year: "numeric", month: "long", day: "numeric" };
     return new Date(dateString).toLocaleDateString(undefined, options);
   };
 
+  // Extract day of the week and time
+  const eventDate = new Date(event.eventDate);
+  const formattedDay = new Intl.DateTimeFormat("en-US", {
+    weekday: "long",
+  })
+    .format(eventDate)
+    .toUpperCase();
+
+  const formattedTime = new Intl.DateTimeFormat("en-US", {
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true,
+  }).format(eventDate);
+
   return (
-    <div className="event-page small-section">
-      <div className="event-hero" style={{backgroundImage: imageUrl ? `url(${imageUrl})` : 'none'}}>
-        <div className="event-hero-overlay">
-          <div className="event-hero-content">
-            <h1 className="event-title">{eventDetails.eventTitle}</h1>
-            {eventDetails.eventSummary && (
-              <p className="event-summary-text">{eventDetails.eventSummary}</p>
-            )}
-            <div className="event-date-badge">
-              <span className="event-date-icon"><FaRegCalendarAlt /></span>
-              <span>{formatDate(eventDetails.eventDate)}</span>
+    <>
+      <Helmet>
+        <title>{eventDetails.eventTitle} | Gospel Revival Wave Church</title>
+        <meta
+          name="description"
+          content={
+            eventDetails.eventSummary ||
+            `Details about ${eventDetails.eventTitle}`
+          }
+        />
+        {/* You can add more meta tags as needed */}
+        <meta property="og:title" content={eventDetails.eventTitle} />
+        <meta
+          property="og:description"
+          content={
+            eventDetails.eventSummary ||
+            `Join us for ${eventDetails.eventTitle}`
+          }
+        />
+        {imageUrl && <meta property="og:image" content={imageUrl} />}
+      </Helmet>{" "}
+      <div className="event-page small-section">
+        <div
+          className="event-hero"
+          style={{ backgroundImage: imageUrl ? `url(${imageUrl})` : "none" }}
+        >
+          <div className="event-hero-overlay">
+            <div className="event-hero-content">
+              <h1 className="event-title">{eventDetails.eventTitle}</h1>
+              {eventDetails.eventSummary && (
+                <p className="event-summary-text">
+                  {eventDetails.eventSummary}
+                </p>
+              )}
+              <div className="event-date-badge">
+                <span className="event-date-icon">
+                  <FaRegCalendarAlt />
+                </span>
+                <span>{formatDate(eventDetails.eventDate)}</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div className="container">
-        <div className="event-content-wrapper">
-          <div className="event-content-card">
-            <h2 className="event-details-heading">Event Details</h2>
-            <div className="event-details-content">
-              {renderContent(eventDetails.eventDetails)}
-            </div>
-          </div>
-          
-          <div className="event-sidebar">
-            <div className="event-info-card">
-              <div className="event-info-item">
-                <h3>When</h3>
-                <p>{formatDate(eventDetails.eventDate)}</p>
+        <div className="container">
+          <div className="event-content-wrapper">
+            <div className="event-content-card">
+              <h2 className="event-details-heading">Event Details</h2>
+              <div className="event-details-content">
+                {renderContent(eventDetails.eventDetails)}
               </div>
-              
-              {eventDetails.eventLocation && (
+            </div>
+            <div className="event-sidebar container">
+              <div className="event-info-card">
                 <div className="event-info-item">
-                  <h3>Where</h3>
-                  <p><FaMapMarkerAlt className="event-info-icon" /> {eventDetails.eventLocation}</p>
-                </div>
-              )}
-              
-              {eventDetails.eventLeader && (
-                <div className="event-info-item">
-                  <h3>Event Leader</h3>
-                  <div className="event-leader-container">
-                    {leaderImageUrl ? (
-                      <img 
-                        src={leaderImageUrl} 
-                        alt={eventDetails.eventLeader} 
-                        className="event-leader-image"
-                      />
-                    ) : (
-                      <div className="event-leader-placeholder">
-                        <FaUser />
-                      </div>
-                    )}
-                    <p>{eventDetails.eventLeader}</p>
+                  <h3>Day</h3>
+                  <div className="event-day-display">
+                    <FaRegCalendarAlt className="event-info-icon" />
+                    <span>
+                      {new Intl.DateTimeFormat("en-US", {
+                        weekday: "long",
+                      }).format(eventDate)}
+                    </span>
                   </div>
                 </div>
-              )}
-              
-              <button className="event-register-button">
-                Register Now
-              </button>
+
+                <div className="event-info-item">
+                  <h3>Hour</h3>
+                  <div className="event-time-display">
+                    <FaRegClock className="event-info-icon" />
+                    <span>{formattedTime}</span>
+                  </div>
+                </div>
+
+                <div className="event-info-item">
+                  <h3>Location</h3>
+                  <div className="event-location-display">
+                    <FaMapMarkerAlt className="event-info-icon" />
+                    <span>{eventDetails.eventLocation}</span>
+                  </div>
+                </div>
+
+                {eventDetails.eventLeader && (
+                  <div className="event-info-item">
+                    <h3>Co-ordinator</h3>
+                    <div className="event-leader-container">
+                      {leaderImageUrl ? (
+                        <img
+                          src={leaderImageUrl}
+                          alt={eventDetails.eventLeader}
+                          className="event-leader-image"
+                        />
+                      ) : (
+                        <div className="event-leader-placeholder">
+                          <FaUser />
+                        </div>
+                      )}
+                      <span>{eventDetails.eventLeader}</span>
+                    </div>
+                  </div>
+                )}
+
+                <button className="event-register-button">Register Now</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

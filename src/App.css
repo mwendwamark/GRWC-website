@@ -22,7 +22,7 @@
   --heading-ff: "Recoleta", serif;
 
   /* Font weights */
-  --h1-fw: 900;
+  --h1-fw: 700 !important;
   --text-fw: 500;
   --text-bold: 600;
 }
