@@ -18,8 +18,8 @@
 }
 
 .hero-title h1 {
-    font-size: var(--h1-fs);
-    font-weight: 700;
+    font-size: 3rem;
+    font-weight: 900 !important;
     text-transform: uppercase;
     text-align: center;
     width: 100%;

@@ -33,6 +33,22 @@
         "videos",
         "audios"
       ]
+    },
+    "eventLocation": {
+      "type": "string"
+    },
+    "eventLeader": {
+      "type": "string"
+    },
+    "eventLeaderImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

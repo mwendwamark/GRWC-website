@@ -422,6 +422,11 @@ export interface ApiChurchEventChurchEvent extends Struct.CollectionTypeSchema {
     >;
     eventDate: Schema.Attribute.DateTime;
     eventDetails: Schema.Attribute.Blocks;
+    eventLeader: Schema.Attribute.String;
+    eventLeaderImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    eventLocation: Schema.Attribute.String;
     eventSummary: Schema.Attribute.String;
     eventTitle: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

@@ -19,11 +19,12 @@
 
   /* Font families */
   --text-ff: "Outfit", serif;
+  --heading-ff: "Recoleta", serif;
 
   /* Font weights */
-  --h1-fw: 700;
-  --text-fw: 400;
-  --text-bold: 500;
+  --h1-fw: 900;
+  --text-fw: 500;
+  --text-bold: 600;
 }
 
 * {
@@ -40,6 +41,11 @@ body {
   height: 100%;
 }
 
+h1 {
+  font-weight: var(--h1-fw);
+  font-size: var(--h1-fs);
+  font-family: var(--heading-ff);
+}
 a {
   text-decoration: none;
 }
@@ -73,7 +79,7 @@ html {
 }
 
 .small-section {
-  margin-top: 7rem;
+  margin-top: 4.375rem;
 }
 
 .section-bottom {

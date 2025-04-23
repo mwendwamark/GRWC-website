@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./Event.css";
-import { FaRegCalendarAlt } from "react-icons/fa";
+import { FaRegCalendarAlt, FaMapMarkerAlt, FaUser } from "react-icons/fa";
 import { getFullApiUrl, getImageUrl } from "../../Utils/apiConfig";
 
-// Helper function to render rich text content
 const renderContent = (content) => {
   if (!content || !Array.isArray(content)) return null;
 
@@ -16,10 +15,11 @@ const renderContent = (content) => {
           <ListTag key={index} className="event-content-list">
             {block.children.map((item, itemIndex) => (
               <li key={itemIndex}>
-                {item.children.map((text, textIndex) => (
+                {item.children && item.children.map((text, textIndex) => (
                   <span
                     key={textIndex}
                     className={text.bold ? "bold-text" : ""}
+                    style={text.bold ? { fontWeight: 700 } : {}}
                   >
                     {text.text}
                   </span>
@@ -32,10 +32,11 @@ const renderContent = (content) => {
       case "paragraph":
         return (
           <p key={index} className="event-content-paragraph">
-            {block.children.map((text, textIndex) => (
+            {block.children && block.children.map((text, textIndex) => (
               <span
                 key={textIndex}
                 className={text.bold ? "bold-text" : ""}
+                style={text.bold ? { fontWeight: 700 } : {}}
               >
                 {text.text}
               </span>
@@ -104,6 +105,16 @@ const Event = () => {
     imageUrl = getImageUrl(event.eventCoverImage.url);
   }
 
+  // Get event leader image if it exists
+  let leaderImageUrl = null;
+  if (
+    event &&
+    event.eventLeaderImage &&
+    event.eventLeaderImage.url
+  ) {
+    leaderImageUrl = getImageUrl(event.eventLeaderImage.url);
+  }
+
   // Format the date in a more readable way
   const formatDate = (dateString) => {
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -111,11 +122,14 @@ const Event = () => {
   };
 
   return (
-    <div className="event-page">
+    <div className="event-page small-section">
       <div className="event-hero" style={{backgroundImage: imageUrl ? `url(${imageUrl})` : 'none'}}>
         <div className="event-hero-overlay">
           <div className="event-hero-content">
             <h1 className="event-title">{eventDetails.eventTitle}</h1>
+            {eventDetails.eventSummary && (
+              <p className="event-summary-text">{eventDetails.eventSummary}</p>
+            )}
             <div className="event-date-badge">
               <span className="event-date-icon"><FaRegCalendarAlt /></span>
               <span>{formatDate(eventDetails.eventDate)}</span>
@@ -143,7 +157,27 @@ const Event = () => {
               {eventDetails.eventLocation && (
                 <div className="event-info-item">
                   <h3>Where</h3>
-                  <p>{eventDetails.eventLocation}</p>
+                  <p><FaMapMarkerAlt className="event-info-icon" /> {eventDetails.eventLocation}</p>
+                </div>
+              )}
+              
+              {eventDetails.eventLeader && (
+                <div className="event-info-item">
+                  <h3>Event Leader</h3>
+                  <div className="event-leader-container">
+                    {leaderImageUrl ? (
+                      <img 
+                        src={leaderImageUrl} 
+                        alt={eventDetails.eventLeader} 
+                        className="event-leader-image"
+                      />
+                    ) : (
+                      <div className="event-leader-placeholder">
+                        <FaUser />
+                      </div>
+                    )}
+                    <p>{eventDetails.eventLeader}</p>
+                  </div>
                 </div>
               )}
               

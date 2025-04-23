@@ -21,7 +21,7 @@ const About = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="about-hero section">
+      <section className="about-hero small-section">
         <div className="container">
           <h1 className="about-hero-title">About Us</h1>
           <p className="about-hero-content">
@@ -54,9 +54,9 @@ const About = () => {
         </div>
         <div className="trust-content">
           <div className="content-divider"></div>
-          <h2 className="trust-title">
+          <h1 className="trust-title">
             In our church we trust in the strength of God's love
-          </h2>
+          </h1>
           <p className="trust-description">
             Lorem ipsum dolor sit amet consectetur adipiscing elit urna vitae ac
             vitae lacus ac proin ultricies eleifend dui ut felis bibendum ut
@@ -73,7 +73,7 @@ const About = () => {
           <div className="mission-container">
             <div className="mission-content">
               <div className="divider"></div>
-              <h2>Our mission</h2>
+              <h1>Our mission</h1>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua ut
@@ -107,9 +107,9 @@ const About = () => {
         </div>
         <div className="community-content">
           <div className="content-divider"></div>
-          <h2 className="community-title">
+          <h1 className="community-title">
             We foster a community built on faith and fellowship
-          </h2>
+          </h1>
           <p className="community-description">
             Our community is built on the foundation of faith, hope, and love.
             We gather together to support one another, grow spiritually, and
@@ -125,7 +125,7 @@ const About = () => {
           <div className="mission-container">
             <div className="mission-content">
               <div className="divider"></div>
-              <h2>Our vision</h2>
+              <h1>Our vision</h1>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua ut
@@ -153,7 +153,7 @@ const About = () => {
       {/* Join Us Section */}
       <section className="join-us section-bottom">
         <div className="container">
-          <h2>Join Us This Sunday</h2>
+          <h1>Join Us This Sunday</h1>
           <p>
             We'd love to have you join us for worship. Our services are designed
             to be welcoming to all, regardless of where you are on your
