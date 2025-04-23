@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /api/
+Disallow: /admin/
+Disallow: /node_modules/
+Disallow: /dist/
+Disallow: /src/
+Allow: /
+
+Sitemap: https://grwc.vercel.app/sitemap.xml
