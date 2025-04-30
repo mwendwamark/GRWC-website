@@ -32,9 +32,9 @@ const Events = ({ events }) => {
 
       <div className="events-container">
         <header className="events-page-headers">
-          <h2 className="events-page-big-header">
+          <h1 className="events-page-big-header">
             You are all welcomed to participate in the church events!
-          </h2>
+          </h1>
         </header>
 
         <div className="events-list">

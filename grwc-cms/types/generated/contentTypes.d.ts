@@ -442,6 +442,49 @@ export interface ApiChurchEventChurchEvent extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiSermonSermon extends Struct.CollectionTypeSchema {
+  collectionName: 'sermons';
+  info: {
+    description: '';
+    displayName: 'Sermon';
+    pluralName: 'sermons';
+    singularName: 'sermon';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    bibleReference: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    datePreached: Schema.Attribute.Date;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::sermon.sermon'
+    > &
+      Schema.Attribute.Private;
+    preacher: Schema.Attribute.String;
+    preacherImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    sermonCoverImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    sermonSummary: Schema.Attribute.Text;
+    sermonTitle: Schema.Attribute.String;
+    sermonVideo: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -953,6 +996,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::announcement.announcement': ApiAnnouncementAnnouncement;
       'api::church-event.church-event': ApiChurchEventChurchEvent;
+      'api::sermon.sermon': ApiSermonSermon;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
