@@ -9,17 +9,17 @@ import img1 from "../../../assets/services.jpg";
 const HomeServices = () => {
   return (
     <>
-      <section className="services-section section">
+      <section className="home-services-section section">
         <header className="history-headers container">
           <h2 className="small-header">SERVICES</h2>
           <h1 className="big-header">OUR SERVICES</h1>
         </header>
 
-        <div className="services-contents container ">
-          <div className="services-contents-left">
-            <header className="services-headers">
-              <h3 className="services-small-header"> MAIN SERVICES</h3>
-              <h2 className="services-big-header">JOIN US EVERY SUNDAY</h2>
+        <div className="home-services-contents container ">
+          <div className="home-services-contents-left">
+            <header className="home-services-headers">
+              <h3 className="home-services-small-header"> MAIN SERVICES</h3>
+              <h2 className="home-services-big-header">JOIN US EVERY SUNDAY</h2>
             </header>
             <div className="service-order">
               <h3>
@@ -51,7 +51,7 @@ const HomeServices = () => {
             </div>
           </div>
 
-          <div className="services-image-right">
+          <div className="home-services-image-right">
             <img src={img1} alt="Church Services" />
           </div>
         </div>

@@ -8,6 +8,8 @@ import churchGroupImage from "../../assets/church-group.jpg"; // You'll need thi
 import Shapes from "../../components/Shapes/Shapes";
 import Leaders from "./Leaders/Leaders";
 import { GoArrowUpRight } from "react-icons/go";
+import { FaUsers } from "react-icons/fa"; // Added for the Our Pastors button
+
 
 const About = () => {
   return (
@@ -35,7 +37,7 @@ const About = () => {
               Sermons <GoArrowUpRight />
             </NavLink>
             <a href="#leaders" className="about-hero-btn about-transparent-btn">
-              Our Pastors
+              <FaUsers style={{ marginRight: '8px' }} /> Our Pastors
             </a>
           </div>
         </div>

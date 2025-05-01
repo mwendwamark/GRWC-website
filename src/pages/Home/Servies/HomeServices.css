@@ -1,111 +1,116 @@
-.services-section {
-    width: 100%;
-    padding: 4rem 0;
-    background-color: var(--light-pink);
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-
+.home-services-section {
+  width: 100%;
+  padding: 4rem 0;
+  background-color: var(--light-pink);
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
 }
 
-.services-contents {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    padding-top: 1.5rem;
+.home-services-contents {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding-top: 1.5rem;
+  width: 60%;
 }
 
-.services-contents-left {
-    width: 55%;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+.home-services-contents-left {
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.services-contents-left header h3 {
-    font-size: 1rem;
-    color: var(--purple-color);
-    text-transform: uppercase;
-    font-weight: 600;
+.home-services-contents-left header h3 {
+  font-size: 1rem;
+  color: var(--purple-color);
+  text-transform: uppercase;
+  font-weight: 600;
 }
 
-.services-contents-left header h2 {
-    text-transform: uppercase;
-    color: var(--text-color);
-    font-size: var(--h3-fs);
+.home-services-contents-left header h2 {
+  text-transform: uppercase;
+  color: var(--text-color);
+  font-size: var(--h3-fs);
 }
 
 .service-order {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .service-order h3 {
-    font-size: var(--h3-fs);
-    color: var(--title-color);
-    font-weight: var(--h2-fw);
+  font-size: var(--h3-fs);
+  color: var(--title-color);
+  font-weight: var(--h2-fw);
 }
 
 .service-order span {
-    font-size: var(--text-size);
-    color: var(--black-color);
-    display: block;
-    margin-bottom: 0.5rem;
+  font-size: var(--text-size);
+  color: var(--black-color);
+  display: block;
+  margin-bottom: 0.5rem;
 }
 
 .service-order p {
-    font-size: var(--text-size);
-    color: var(--text-color);
+  font-size: var(--text-size);
+  color: var(--text-color);
 }
 
-.services-image-right {
-    width: 40%;
+.home-services-image-right {
+  width: 40%;
 }
 
-.services-image-right img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
+.home-services-image-right img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
 }
 
 .sermons-button {
-    width: 100%;
-    padding: 8px 16px;
-    display: flex;
-    align-items: center;
-    background-color: var(--black-color);
-    justify-content: center;
-    gap: 5px;
-    cursor: pointer;
-    transition: 0.6s linear;
+  width: 100%;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  background-color: var(--black-color);
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: 0.6s linear;
 }
 
 .sermons-button:hover {
-    opacity: 0.6;
+  opacity: 0.6;
 }
 
 .sermons-button a {
-    color: var(--background-color);
+  color: var(--background-color);
 }
 
 .sermon-settings-btn {
-    margin: 0 auto;
+  margin: 0 auto;
 }
 
-
 /* RESPONSIVENESS */
+@media (max-width: 1100px) {
+  .home-services-contents {
+    width: 80%;
+  }
+}
 @media (max-width: 768px) {
-    .services-contents {
-        flex-direction: column;
-        align-items: center;
-    }
+  .home-services-contents {
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+  }
 
-    .services-contents-left,
-    .services-image-right {
-        width: 100%;
-    }
+  .home-services-contents-left,
+  .home-services-image-right {
+    width: 100%;
+  }
 
-    .services-image-right img {
-        margin-top: 1rem;
-    }
+  .home-services-image-right img {
+    margin-top: 1rem;
+  }
 }

@@ -1,11 +1,11 @@
-/* About.css */
+/* About.css - Fully Revised */
 
 /* Hero Section */
 .about-hero {
   background-color: rgba(0, 0, 0, 0.5);
   position: relative;
   text-align: left;
-  padding: 200px 0;
+  padding: 180px 0;
   width: 100%;
   overflow: hidden;
 }
@@ -22,6 +22,11 @@
   background-position: center;
   z-index: -1;
   filter: brightness(0.7);
+  transition: transform 0.5s ease;
+}
+
+.about-hero:hover::before {
+  transform: scale(1.03); /* Subtle zoom effect on hover */
 }
 
 .about-hero .container {
@@ -36,7 +41,20 @@
   font-weight: var(--h1-fw);
   margin-bottom: 20px;
   color: white;
-  letter-spacing: 2.2px;
+  letter-spacing: 1.5px;
+  position: relative;
+  padding-bottom: 15px;
+  font-family: var(--heading-ff);
+}
+
+.about-hero-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 3px;
+  background-color: var(--purple-color);
 }
 
 .about-hero-content {
@@ -44,55 +62,99 @@
   font-size: var(--text-size);
   color: white;
   margin-bottom: 30px;
-  line-height: 28px;
+  line-height: 1.8;
+  font-family: var(--text-ff);
+  font-weight: var(--text-fw);
 }
 
+/* Updated Hero Section Button Styles */
 .about-hero-buttons {
   display: flex;
   justify-content: flex-start;
   gap: 20px;
+  flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
 }
 
 .about-hero-btn {
-  display: inline-block;
-  padding: 20px 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
   font-weight: var(--text-bold);
+  font-size: 0.95rem;
   text-decoration: none;
+  border-radius: 50px; /* Rounded edges for modern look */
   transition: all 0.3s ease;
   text-transform: uppercase;
+  letter-spacing: 0.5px;
+  min-width: 160px; /* Ensure consistent width */
+  position: relative;
+  overflow: hidden; /* For hover effects */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-family: var(--text-ff);
 }
 
 .about-btn-primary {
   background-color: var(--purple-color);
   color: white;
   border: 2px solid var(--purple-color);
-  transition: 0.6s linear;
+  transition: all 0.3s ease;
   display: flex;
   align-items: center;
   gap: 10px;
-  margin: 0 auto;
-  justify-content: center;
 }
 
-.btn-primary:hover {
-  color: var(--purple-color);
-  background-color: var(--background-color);
-  border: 2px solid var(--background-color);
-  outline: 2px solid var(--background-color);
-  outline-offset: 2px;
+.about-btn-primary:hover {
+  background-color: transparent;
+  color: white;
+  border-color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.about-btn-primary svg {
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.about-btn-primary:hover svg {
+  transform: translateX(3px) translateY(-3px);
 }
 
 .about-transparent-btn {
   background-color: transparent;
   color: white;
   border: 2px solid white;
+  transition: all 0.3s ease;
 }
 
-.transparent-btn:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 2px solid var(--purple-color);
-  outline: 2px solid var(--purple-color);
-  outline-offset: 2px;
+.about-transparent-btn:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Add a ripple effect on button click */
+.about-hero-btn:active::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 1;
+  animation: ripple 0.6s ease-out;
+}
+
+@keyframes ripple {
+  to {
+    transform: translate(-50%, -50%) scale(3);
+    opacity: 0;
+  }
 }
 
 /* Trust Section - Now with overlapping content like community section */
@@ -103,14 +165,17 @@
   margin: 0 auto;
   padding-top: 60px;
   padding-bottom: 60px;
-  margin-top: 120px; /* Increased spacing */
-  margin-bottom: 120px; /* Increased spacing */
+  margin-top: 120px;
+  margin-bottom: 120px;
 }
 
 .trust-image {
   width: 55%;
   height: 100%;
   position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .trust-photo {
@@ -118,58 +183,109 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 0.5s ease;
+}
+
+.trust-image:hover .trust-photo {
+  transform: scale(1.05);
 }
 
 .trust-content {
   position: absolute;
   right: 10%;
   top: 50%;
-  /* border: 1px solid var(--light-pink); */
   transform: translateY(-50%);
   background-color: var(--background-color);
-  padding: 70px;
+  padding: 60px;
   width: 46%;
   z-index: 2;
+  border-radius: 8px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.trust-content:hover {
+  transform: translateY(-53%);
+}
+
+.content-divider {
+  width: 60px;
+  height: 3px;
+  background-color: var(--purple-color);
+  margin-bottom: 25px;
 }
 
 .trust-title {
   font-size: var(--h1-fs);
   font-weight: var(--h1-fw);
-  margin-bottom: 20px;
-  line-height: 1.2;
+  margin-bottom: 25px;
+  line-height: 1.3;
   color: var(--title-color);
+  font-family: var(--heading-ff);
 }
 
 .trust-description {
   font-size: var(--text-size);
-  line-height: 1.7;
+  line-height: 1.8;
   color: var(--text-color);
+  font-family: var(--text-ff);
+  font-weight: var(--text-fw);
 }
 
 /* Section Divider */
 .section-divider {
   width: 80%;
-  margin: 100px auto; /* Increased spacing */
+  margin: 100px auto;
   border: none;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-/* Mission Section - This matches the second image in your example */
+/* Mission Section */
 .dark-container-mission,
 .dark-container-vision {
   background-color: var(--light-pink);
-  padding: 50px;
+  padding: 60px 0;
+  border-radius: 0;
+  position: relative;
+  overflow: hidden;
 }
+
+.dark-container-mission::before,
+.dark-container-vision::before {
+  content: "";
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 250px;
+  height: 250px;
+  background-color: rgba(201, 48, 255, 0.05);
+  border-radius: 50%;
+}
+
+.dark-container-mission::after,
+.dark-container-vision::after {
+  content: "";
+  position: absolute;
+  bottom: -70px;
+  left: -70px;
+  width: 180px;
+  height: 180px;
+  background-color: rgba(201, 48, 255, 0.05);
+  border-radius: 50%;
+}
+
 .mission-section {
-  width: 90%;
+  width: 85%;
   max-width: 1200px;
-  margin: 120px auto; /* Increased spacing */
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .mission-container {
   display: flex;
   flex-direction: row;
-  gap: 60px; /* Increased gap */
+  gap: 60px;
   align-items: center;
 }
 
@@ -178,23 +294,42 @@
   padding: 20px;
 }
 
-.mission-content h2 {
+.divider {
+  width: 60px;
+  height: 3px;
+  background-color: var(--purple-color);
+  margin-bottom: 25px;
+}
+
+.mission-content h1 {
   font-size: var(--h1-fs);
   font-weight: var(--h1-fw);
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   color: var(--title-color);
+  font-family: var(--heading-ff);
+  line-height: 1.3;
 }
 
 .mission-content p {
   font-size: var(--text-size);
-  line-height: 1.7;
+  line-height: 1.8;
   color: var(--text-color);
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  font-family: var(--text-ff);
+  font-weight: var(--text-fw);
 }
 
 .mission-image {
   flex: 1;
   max-width: 50%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.mission-image:hover {
+  transform: translateY(-10px);
 }
 
 .mission-image img {
@@ -202,6 +337,11 @@
   height: auto;
   object-fit: cover;
   display: block;
+  transition: transform 0.5s ease;
+}
+
+.mission-image:hover img {
+  transform: scale(1.05);
 }
 
 /* Community Section */
@@ -209,16 +349,19 @@
   position: relative;
   height: 700px;
   width: 80%;
-  margin: 120px auto; /* Increased spacing */
+  margin: 120px auto;
   padding-top: 60px;
   padding-bottom: 60px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .community-image {
   width: 55%;
   height: 100%;
   position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .community-photo {
@@ -226,90 +369,46 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 0.5s ease;
+}
+
+.community-image:hover .community-photo {
+  transform: scale(1.05);
 }
 
 .community-content {
   position: absolute;
   right: 10%;
   top: 50%;
-  /* border: 1px solid var(--light-pink); */
   transform: translateY(-50%);
   background-color: var(--background-color);
-  padding: 70px;
+  padding: 60px;
   width: 46%;
   z-index: 2;
+  border-radius: 8px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
 }
 
-.content-divider {
-  width: 50px;
-  height: 3px;
-  background-color: var(--purple-color);
-  margin-bottom: 20px;
+.community-content:hover {
+  transform: translateY(-53%);
 }
 
 .community-title {
   font-size: var(--h1-fs);
   font-weight: var(--h1-fw);
-  margin-bottom: 20px;
-  line-height: 1.2;
+  margin-bottom: 25px;
+  line-height: 1.3;
   color: var(--title-color);
+  font-family: var(--heading-ff);
 }
 
 .community-description {
   font-size: var(--text-size);
-  line-height: 1.7;
+  line-height: 1.8;
   color: var(--text-color);
-}
-
-/* Mission and Values Section */
-.mission-values {
-  background-color: var(--background-color);
-  padding: 80px 0;
-  width: 80%;
-  margin: 120px auto; /* Increased spacing */
-}
-
-.mission-values .container {
-  display: flex;
-  gap: 40px;
-}
-
-.mission-box,
-.values-box {
-  flex: 1;
-  padding: 40px; /* Increased padding */
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-}
-
-.mission-box h3,
-.values-box h3 {
-  font-size: var(--h3-fs);
-  margin-bottom: 20px;
-  color: var(--purple-color);
-  font-weight: var(--h1-fw);
-}
-
-.mission-box p {
-  color: var(--text-color);
-  font-size: var(--text-size);
-}
-
-.values-box ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.values-box li {
-  padding: 12px 0; /* Increased padding */
-  border-bottom: 1px solid var(--light-pink);
-  color: var(--text-color);
-  font-size: var(--text-size);
-}
-
-.values-box li:last-child {
-  border-bottom: none;
+  font-family: var(--text-ff);
+  font-weight: var(--text-fw);
 }
 
 /* Join Us Section */
@@ -317,26 +416,55 @@
   background-color: var(--purple-color);
   color: white;
   text-align: center;
-  padding: 100px 0; /* Increased padding */
+  padding: 100px 0;
   width: 100%;
-  /* margin-top: 120px; Increased spacing */
+  position: relative;
+  overflow: hidden;
+}
+
+.join-us::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 200px;
+  height: 200px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+}
+
+.join-us::after {
+  content: "";
+  position: absolute;
+  bottom: -70px;
+  left: -70px;
+  width: 240px;
+  height: 240px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
 }
 
 .join-us .container {
   width: 80%;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
-.join-us h2 {
-  font-size: var(--h2-fs);
-  margin-bottom: 30px; /* Increased spacing */
+.join-us h1 {
+  font-size: var(--h1-fs);
+  margin-bottom: 30px;
   font-weight: var(--h1-fw);
+  font-family: var(--heading-ff);
 }
 
 .join-us p {
   max-width: 700px;
-  margin: 0 auto 40px; /* Increased spacing */
+  margin: 0 auto 40px;
   font-size: var(--text-size);
+  line-height: 1.8;
+  font-family: var(--text-ff);
+  font-weight: var(--text-fw);
 }
 
 .btn-cta {
@@ -344,36 +472,34 @@
   color: var(--purple-color);
   border: 2px solid white;
   font-size: var(--text-size);
-  padding: 16px 38px; /* Increased padding */
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-weight: var(--text-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-family: var(--text-ff);
 }
 
 .btn-cta:hover {
   background-color: transparent;
   color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
 }
 
-/* Section spacing classes */
-.section {
-  margin-top: 12rem; /* Increased from 9rem */
-}
-
-.small-section {
-  margin-top: 8rem; /* Increased from 7rem */
-}
-
-.section-bottom {
-  padding-bottom: 12rem; /* Increased from 9rem */
-}
-
+/* Responsive Styles */
 @media (max-width: 1500px) {
   .trust-content,
   .community-content {
-    position: absolute;
-    right: 10%;
-    top: 50%;
+    right: 5%;
+    width: 48%;
+    padding: 50px;
   }
 }
-/* Responsive Styles */
+
 @media (max-width: 1200px) {
   .mission-container {
     flex-direction: column;
@@ -383,18 +509,24 @@
   .mission-image {
     max-width: 100%;
     order: 1;
+    margin-bottom: 30px;
   }
 
   .mission-content {
     order: 2;
     width: 100%;
     padding: 30px 20px;
+    text-align: center;
+  }
+
+  .divider {
+    margin: 0 auto 25px;
   }
 
   .trust-section,
   .community-section {
     position: relative;
-    margin: 60px auto;
+    margin: 80px auto;
     height: auto;
   }
 
@@ -414,85 +546,117 @@
     top: auto;
     right: auto;
     padding: 40px;
+    text-align: center;
   }
 
-  .mission-values .container {
-    flex-direction: column;
+  .content-divider {
+    margin: 0 auto 25px;
   }
 
   .about-hero-title {
-    font-size: calc(var(--h1-fs) - 0.5rem);
+    font-size: calc(var(--h1-fs) - 0.2rem);
   }
 
   .community-title,
   .trust-title {
-    font-size: calc(var(--h2-fs) - 0.2rem);
-  }
-
-  .section {
-    margin-top: 8rem;
+    font-size: calc(var(--h2-fs) - 0.1rem);
   }
 }
 
 @media (max-width: 768px) {
   .about-hero {
-    padding: 120px 0;
+    padding: 130px 0;
   }
 
+  .about-hero-buttons {
+    gap: 15px;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  
   .about-hero-btn {
-    width: 100%;
-    margin-bottom: 10px;
-    text-align: center;
-    padding: 1rem;
+    padding: 12px 22px;
+    min-width: 140px;
+    font-size: 0.9rem;
   }
 
   .trust-content,
   .community-content {
     padding: 30px;
+    margin-top: -60px;
   }
 
   .about-hero .container,
   .trust-section,
   .community-section,
-  .mission-values,
+  .mission-section,
   .join-us .container {
     width: 90%;
   }
 
   .section-divider {
-    margin: 60px auto;
+    margin: 70px auto;
+  }
+
+  .mission-content p {
+    font-size: 0.95rem;
   }
 
   .dark-container-mission,
   .dark-container-vision {
-    background-color: var(--light-pink);
-    padding: 20px;
+    padding: 40px 0;
+  }
+
+  .join-us {
+    padding: 80px 0;
   }
 }
 
 @media screen and (max-width: 450px) {
   .about-hero {
-    padding: 60px 0;
+    padding: 90px 0;
   }
 
   .about-hero-title {
     font-size: 1.8rem;
   }
 
+  .about-hero-content {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .about-hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 15px;
+  }
+  
+  .about-hero-btn {
+    width: 100%;
+    max-width: 220px;
+  }
+
   .community-title,
   .trust-title,
-  .mission-content h2 {
+  .mission-content h1 {
     font-size: 1.6rem;
   }
 
-  .join-us h2 {
+  .join-us h1 {
     font-size: 1.8rem;
   }
 
   .trust-content,
   .community-content,
   .mission-content {
-    padding: 20px 15px;
+    padding: 25px 20px;
+  }
+
+  .trust-image,
+  .community-image {
+    height: 300px;
   }
 
   .section {
@@ -501,14 +665,32 @@
 
   .dark-container-mission,
   .dark-container-vision {
-    background-color: var(--light-pink);
-    padding: 5px;
+    padding: 30px 0;
+  }
+  
+  .join-us p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  
+  .btn-cta {
+    padding: 12px 24px;
+    font-size: 0.9rem;
   }
 }
 
 @media screen and (max-width: 350px) {
-  .about-hero-buttons {
-    flex-direction: column;
-    align-items: flex-start;
+  .about-hero-title {
+    font-size: 1.6rem;
+  }
+
+  .community-title,
+  .trust-title,
+  .mission-content h1 {
+    font-size: 1.5rem;
+  }
+  
+  .join-us h1 {
+    font-size: 1.6rem;
   }
 }

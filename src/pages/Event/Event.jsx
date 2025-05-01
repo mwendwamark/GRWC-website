@@ -6,9 +6,100 @@ import {
   FaMapMarkerAlt,
   FaUser,
   FaRegClock,
+  FaGoogle,
+  FaApple,
+  FaMicrosoft,
+  FaYahoo,
 } from "react-icons/fa";
-import { Helmet } from "react-helmet"; // Import React Helmet
+import { Helmet } from "react-helmet";
 import { getFullApiUrl, getImageUrl } from "../../Utils/apiConfig";
+
+// Calendar utility functions
+const generateGoogleCalendarUrl = (event) => {
+  const eventDate = new Date(event.eventDate);
+  // Set end time to 1 hour after start by default if not specified
+  const endDate = new Date(eventDate.getTime() + 60 * 60 * 1000);
+  
+  const formatGoogleDate = (date) => {
+    return date.toISOString().replace(/-|:|\.\d+/g, "");
+  };
+
+  const params = new URLSearchParams({
+    action: "TEMPLATE",
+    text: event.eventTitle,
+    dates: `${formatGoogleDate(eventDate)}/${formatGoogleDate(endDate)}`,
+    details: event.eventSummary || `Event at ${event.eventLocation}`,
+    location: event.eventLocation,
+  });
+
+  return `https://calendar.google.com/calendar/render?${params.toString()}`;
+};
+
+const generateICalUrl = (event) => {
+  const eventDate = new Date(event.eventDate);
+  const endDate = new Date(eventDate.getTime() + 60 * 60 * 1000);
+  
+  const formatICalDate = (date) => {
+    return date.toISOString().replace(/-|:|\.\d+/g, "");
+  };
+
+  let icalContent = [
+    "BEGIN:VCALENDAR",
+    "VERSION:2.0",
+    "BEGIN:VEVENT",
+    `DTSTART:${formatICalDate(eventDate)}`,
+    `DTEND:${formatICalDate(endDate)}`,
+    `SUMMARY:${event.eventTitle}`,
+    `DESCRIPTION:${event.eventSummary || ""}`,
+    `LOCATION:${event.eventLocation}`,
+    "END:VEVENT",
+    "END:VCALENDAR"
+  ].join("\n");
+
+  const blob = new Blob([icalContent], { type: "text/calendar;charset=utf-8" });
+  return URL.createObjectURL(blob);
+};
+
+const generateOutlookUrl = (event) => {
+  const eventDate = new Date(event.eventDate);
+  const endDate = new Date(eventDate.getTime() + 60 * 60 * 1000);
+  
+  const formatOutlookDate = (date) => {
+    return date.toISOString().replace(/-|:|\.\d+/g, "");
+  };
+
+  const params = new URLSearchParams({
+    path: "/calendar/action/compose",
+    rru: "addevent",
+    subject: event.eventTitle,
+    startdt: formatOutlookDate(eventDate),
+    enddt: formatOutlookDate(endDate),
+    body: event.eventSummary || "",
+    location: event.eventLocation,
+  });
+
+  return `https://outlook.live.com/calendar/0/deeplink/compose?${params.toString()}`;
+};
+
+const generateYahooCalendarUrl = (event) => {
+  const eventDate = new Date(event.eventDate);
+  const endDate = new Date(eventDate.getTime() + 60 * 60 * 1000);
+  
+  const formatYahooDate = (date) => {
+    return date.toISOString().replace(/-|:|\.\d+/g, "");
+  };
+
+  const params = new URLSearchParams({
+    v: "60",
+    title: event.eventTitle,
+    st: formatYahooDate(eventDate),
+    et: formatYahooDate(endDate),
+    desc: event.eventSummary || "",
+    in_loc: event.eventLocation,
+  });
+
+  return `https://calendar.yahoo.com/?${params.toString()}`;
+};
 
 const renderContent = (content) => {
   if (!content || !Array.isArray(content)) return null;
@@ -63,6 +154,7 @@ const Event = () => {
   const [event, setEvent] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [showCalendarOptions, setShowCalendarOptions] = useState(false);
 
   useEffect(() => {
     const fetchEvent = async () => {
@@ -91,6 +183,15 @@ const Event = () => {
       fetchEvent();
     }
   }, [id]);
+
+  const downloadICalFile = (event) => {
+    const link = document.createElement("a");
+    link.href = generateICalUrl(event);
+    link.download = `${event.eventTitle.replace(/\s+/g, "-")}.ics`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   if (loading)
     return (
@@ -150,7 +251,6 @@ const Event = () => {
             `Details about ${eventDetails.eventTitle}`
           }
         />
-        {/* You can add more meta tags as needed */}
         <meta property="og:title" content={eventDetails.eventTitle} />
         <meta
           property="og:description"
@@ -160,7 +260,7 @@ const Event = () => {
           }
         />
         {imageUrl && <meta property="og:image" content={imageUrl} />}
-      </Helmet>{" "}
+      </Helmet>
       <div className="event-page small-section">
         <div
           className="event-hero"
@@ -242,7 +342,58 @@ const Event = () => {
                   </div>
                 )}
 
-                <button className="event-register-button">Add to Calendar</button>
+                <div className="calendar-section">
+                  {!showCalendarOptions ? (
+                    <button 
+                      className="event-register-button"
+                      onClick={() => setShowCalendarOptions(true)}
+                    >
+                      Add to Calendar
+                    </button>
+                  ) : (
+                    <div className="calendar-options">
+                      <h4>Select Calendar</h4>
+                      <div className="calendar-buttons">
+                        <a 
+                          href={generateGoogleCalendarUrl(eventDetails)} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="calendar-button google"
+                        >
+                          <FaGoogle /> Google
+                        </a>
+                        <a 
+                          href={generateOutlookUrl(eventDetails)} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="calendar-button outlook"
+                        >
+                          <FaMicrosoft /> Outlook
+                        </a>
+                        <a 
+                          href={generateYahooCalendarUrl(eventDetails)} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="calendar-button yahoo"
+                        >
+                          <FaYahoo /> Yahoo
+                        </a>
+                        <button 
+                          onClick={() => downloadICalFile(eventDetails)}
+                          className="calendar-button apple"
+                        >
+                          <FaApple /> Apple Calendar
+                        </button>
+                      </div>
+                      <button 
+                        className="calendar-close-button"
+                        onClick={() => setShowCalendarOptions(false)}
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </div>

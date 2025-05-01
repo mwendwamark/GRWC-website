@@ -114,6 +114,7 @@
   font-weight: 600;
   border-bottom: 3px solid var(--purple-color);
   display: inline-block;
+  font-family: var(--heading-ff);
 }
 
 .event-details-content {
@@ -150,7 +151,7 @@
   background: var(--background-color);
   border-radius: 8px;
   border: 1px solid rgba(0, 0, 0, 0.15);
-  padding: 25px;
+  padding: 30px;
   transition: box-shadow 0.3s ease;
 }
 
@@ -167,10 +168,10 @@
 }
 
 .event-info-item h3 {
-  font-size: 0.85rem;
+  font-size: 1rem;
   margin-bottom: 12px;
-  color: #666;
-  font-weight: 500;
+  color: var(--black-color);
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -181,13 +182,13 @@
 .event-leader-container {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
 }
 
 .event-day-display span,
 .event-time-display span,
 .event-location-display span {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 400;
   color: var(--text-color);
 }
@@ -216,7 +217,7 @@
 }
 
 .event-leader-container span {
-  font-size: 1.2rem;
+  font-size: 1.1em;
   font-weight: 400;
   color: var(--text-color);
 }
@@ -310,6 +311,91 @@
   color: #666;
 }
 
+/* Add these styles to your Event.css file */
+
+.calendar-section {
+  margin-top: 20px;
+}
+
+.calendar-options {
+  background-color: var(--background-color);
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-options h4 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 16px;
+  color: #333;
+  text-align: center;
+}
+
+.calendar-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.calendar-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 6px;
+  font-weight: 500;
+  color: var(--background-color);
+  text-decoration: none;
+  transition: transform 0.2s, opacity 0.2s;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.calendar-button:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.calendar-button.google {
+  background-color: #4285f4;
+}
+
+.calendar-button.outlook {
+  background-color: #0078d4;
+}
+
+.calendar-button.yahoo {
+  background-color: #720e9e;
+}
+
+.calendar-button.apple {
+  background-color: #555;
+}
+
+.calendar-close-button {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background-color: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.calendar-close-button:hover {
+  background-color: #f0f0f0;
+}
+
+@media (max-width: 768px) {
+  .calendar-buttons {
+    grid-template-columns: 1fr;
+  }
+}
 @media (max-width: 992px) {
   .event-content-wrapper {
     flex-direction: column-reverse;
