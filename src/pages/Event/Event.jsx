@@ -242,7 +242,7 @@ const Event = () => {
                   </div>
                 )}
 
-                <button className="event-register-button">Register Now</button>
+                <button className="event-register-button">Add to Calendar</button>
               </div>
             </div>
           </div>

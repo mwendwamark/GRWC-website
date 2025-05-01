@@ -31,10 +31,10 @@ const About = () => {
             voluptas perspiciatis debitis eligendi magnam commodi consequuntur.
           </p>
           <div className="about-hero-buttons">
-            <NavLink to="/sermons" className="btn btn-primary">
+            <NavLink to="/sermons" className="about-hero-btn about-btn-primary">
               Sermons <GoArrowUpRight />
             </NavLink>
-            <a href="#leaders" className="btn transparent-btn">
+            <a href="#leaders" className="about-hero-btn about-transparent-btn">
               Our Pastors
             </a>
           </div>
@@ -159,7 +159,7 @@ const About = () => {
             to be welcoming to all, regardless of where you are on your
             spiritual journey.
           </p>
-          <NavLink to="/visit" className="btn btn-cta">
+          <NavLink to="/contact" className="btn btn-cta">
             Plan Your Visit
           </NavLink>
         </div>

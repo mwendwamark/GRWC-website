@@ -1,3 +1,4 @@
+@import "tailwindcss";
 @font-face {
     font-family: 'Recoleta';
     src: url('../public/Recoleta.otf') format('truetype');
