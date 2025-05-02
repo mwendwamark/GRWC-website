@@ -57,7 +57,12 @@ const Hero = () => {
                 )}
                 <div className="slide-text">
                   <p>{item.text}</p>
-                  <NavLink className="visit-btn">Visit us →</NavLink>
+                  <NavLink
+                    className="visit-btn btn btn-primary btn-icon"
+                    to="/about"
+                  >
+                    Visit us <LiaLongArrowAltRightSolid />
+                  </NavLink>
                 </div>
               </div>
             </SwiperSlide>

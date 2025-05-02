@@ -1,8 +1,9 @@
 /* Core sermon page layout */
 .sermon-page {
-  padding: 2rem 0;
+  /* padding: 2rem 0; */
   margin: 0 auto;
   width: 80%;
+  padding-top: 7rem !important;
 }
 
 /* Back button styling */
@@ -35,6 +36,15 @@
   margin-bottom: 3rem;
   width: 70%;
   margin: 0 auto;
+}
+
+/* Custom section styles for sermon page to avoid conflicts with global classes */
+.sermon-section-bottom {
+  padding-bottom: 9rem;
+}
+
+.sermon-small-section {
+  margin-top: 7rem;
 }
 
 .sermon-hero-container {
@@ -129,8 +139,9 @@
 
 /* Video Section - Adjusted height and width */
 .sermon-content-section {
-  width: 80%; /* Width aligned with sermon overview */
-  margin: 0 auto 3rem;
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 6rem;
 }
 
 .sermon-section-heading {
@@ -162,9 +173,8 @@
   width: 100%;
   max-height: 600px;
   display: block;
-  object-fit: cover; 
+  object-fit: cover;
 }
-
 
 .sermon-content-layout {
   width: 80%;
@@ -195,7 +205,6 @@
   color: #444;
   padding: 0.5rem 0;
 }
-
 
 .sermon-overview {
   background-color: var(--background-color);
@@ -263,7 +272,7 @@
 /* Action buttons section */
 .sermon-action-buttons {
   display: flex;
-  flex-direction: row !important; /* Horizontal layout on larger screens */
+  flex-direction: row !important;
   justify-content: space-between; /* Space between buttons */
   gap: 1rem;
   margin-top: 1.5rem;
@@ -276,8 +285,6 @@
   background-color: transparent;
   color: var(--purple-color);
   text-align: center;
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
   font-weight: 500;
   transition: all 0.3s ease;
   text-decoration: none;
@@ -287,7 +294,8 @@
   margin: 0;
   font-family: var(--text-ff);
   font-size: 1rem;
-
+  padding: 0.8rem 1.6rem;
+  border-radius: 50px !important;
 }
 
 .sermon-download-button:hover {
@@ -301,8 +309,8 @@
   background-color: var(--purple-color);
   color: white;
   text-align: center;
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
+  padding: 0.8rem 1.6rem;
+  border-radius: 50px !important;
   font-weight: 500;
   transition: all 0.3s ease;
   text-decoration: none;
@@ -320,7 +328,11 @@
 }
 
 /* Responsive adjustments */
-@media (max-width: 1200px) {
+@media (max-width: 1220px) {
+
+  .sermon-action-buttons{
+    width: 80% !important;
+  }
   .sermon-hero {
     width: 80%;
   }
@@ -351,10 +363,14 @@
     max-width: 100%;
   }
 
+  .sermon-action-buttons{
+    width: 90% !important;
+  }
+
   .sermon-title {
     font-size: 2.25rem;
   }
-  
+
   .sermon-preacher {
     margin-bottom: 2rem;
   }
@@ -381,11 +397,11 @@
   .sermon-section-heading {
     font-size: 1.5rem;
   }
-  
+
   .sermon-video {
     max-height: 300px;
   }
-  
+
   .preacher-image-container {
     width: 40px;
     height: 40px;
@@ -393,17 +409,16 @@
 
   .sermon-action-buttons {
     flex-direction: column !important;
-    justify-content: space-between;
     width: 100% !important;
-    padding:0px;
+    padding: 0;
     margin: 0;
-
   }
-  
+
   .sermon-download-button,
   .sermon-share-button {
-    width: 100% !important; /* Allow a small gap between buttons */
-    padding: 1rem 0.8rem;
+    width: 100% !important;
+    padding: 0.8rem 1.6rem;
+    border-radius: 50px !important;
     font-family: var(--text-ff);
   }
 }
@@ -428,7 +443,7 @@
   animation: spin 1s linear infinite;
 }
 
-.sermon-overview{
+.sermon-overview {
   padding: 1rem;
 }
 

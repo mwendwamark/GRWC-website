@@ -42,7 +42,7 @@ const HomeHistory = () => {
               continues to embrace the future with faith and purpose.
             </p>
 
-            <NavLink to="/about" className="read-more-btn">
+            <NavLink to="/about" className=" read-more-btn btn btn-primary">
               Read more <LiaLongArrowAltRightSolid className="purple-icon" />
             </NavLink>
           </div>

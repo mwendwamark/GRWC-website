@@ -56,11 +56,11 @@
 }
 
 .contact-button {
-    background-color: var(--purple-color);
-    color: #ffffff;
-    padding: 8px 16px;
-    border-radius: 0px;
-    text-align: center;
+    color: #ffffff !important;
+    padding: 0.5rem .1rem !important;  
+    text-transform: none;
+    font-weight: 400;  
+    transition: linear 0.6s;
 }
 
 .contact-button.active {

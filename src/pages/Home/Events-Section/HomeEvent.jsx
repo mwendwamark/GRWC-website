@@ -12,7 +12,7 @@ const HomeEvent = () => {
         </header>
         <div className="events-contents">
           <p>Click the button to show the upcoming events</p>
-          <NavLink to="/events">
+          <NavLink to="/events" className="btn btn-primary">
             <p>Upcoming events</p> <LiaLongArrowAltRightSolid />
           </NavLink>
         </div>

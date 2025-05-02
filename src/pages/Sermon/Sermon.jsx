@@ -69,7 +69,7 @@ const Sermon = () => {
   useEffect(() => {
     // Set current URL for sharing
     setCurrentUrl(window.location.href);
-    
+
     const fetchSermon = async () => {
       try {
         setLoading(true);
@@ -101,43 +101,45 @@ const Sermon = () => {
   const handleDownload = async (e) => {
     e.preventDefault();
     if (!videoUrl) return;
-    
+
     try {
       setIsDownloading(true);
-      
+
       // Fetch the file
       const response = await fetch(videoUrl);
-      
+
       if (!response.ok) {
         throw new Error("Failed to download the sermon");
       }
-      
+
       // Get the blob of the file
       const blob = await response.blob();
-      
+
       // Create a URL for the blob
       const blobUrl = window.URL.createObjectURL(blob);
-      
+
       // Create a temporary anchor element
       const downloadLink = document.createElement("a");
       downloadLink.href = blobUrl;
-      
+
       // Set the filename for the download
       const filename = videoUrl.split("/").pop() || `sermon-${id}.mp4`;
       downloadLink.download = filename;
-      
+
       // Append the link to the body
       document.body.appendChild(downloadLink);
-      
+
       // Trigger the click event
       downloadLink.click();
-      
+
       // Clean up
       document.body.removeChild(downloadLink);
       window.URL.revokeObjectURL(blobUrl);
     } catch (err) {
       console.error("Error downloading sermon:", err);
-      alert("There was an error downloading the sermon. Please try again later.");
+      alert(
+        "There was an error downloading the sermon. Please try again later."
+      );
     } finally {
       setIsDownloading(false);
     }
@@ -185,7 +187,15 @@ const Sermon = () => {
 
   // Get the day of the week from the date
   const getDayOfWeek = (dateString) => {
-    const days = ["SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"];
+    const days = [
+      "SUNDAY",
+      "MONDAY",
+      "TUESDAY",
+      "WEDNESDAY",
+      "THURSDAY",
+      "FRIDAY",
+      "SATURDAY",
+    ];
     const date = new Date(dateString);
     return days[date.getDay()];
   };
@@ -211,13 +221,13 @@ const Sermon = () => {
         {imageUrl && <meta property="og:image" content={imageUrl} />}
       </Helmet>
 
-      <div className="sermon-page container small-section">
+      <div className="sermon-page container">
         <div className="sermon-navigation">
           <IoIosArrowRoundBack />
           <NavLink to="/sermons">Back to Sermons</NavLink>
         </div>
 
-        <section className="sermon-hero">
+        <div className="sermon-hero sermon-section-bottom">
           <div className="sermon-hero-container">
             <div className="sermon-hero-overview">
               <div className="sermon-date-badge">
@@ -251,9 +261,9 @@ const Sermon = () => {
               <img src={imageUrl} alt={sermon.sermonTitle} />
             </div>
           </div>
-        </section>
+        </div>
 
-        <section className="sermon-content-section small-section">
+        <div className="sermon-content-section small-section">
           <h2 className="sermon-section-heading">Watch Sermon</h2>
           {videoUrl && (
             <div className="sermon-video-container">
@@ -263,7 +273,7 @@ const Sermon = () => {
               </video>
             </div>
           )}
-        </section>
+        </div>
 
         {/* Share functionality is now handled by the button next to download */}
 
@@ -314,12 +324,7 @@ const Sermon = () => {
                   </div>
                 </div>
               )}
-              {sermon.bibleReference && (
-                <div className="sermon-bible-badge">
-                  <BiBible className="sermon-bible-icon" />
-                  <span>{sermon.bibleReference}</span>
-                </div>
-              )}{" "}
+
               {sermon.sermonSummary && (
                 <div className="sermon-overview-item">
                   <h3>Sermon Summary</h3>
@@ -330,15 +335,19 @@ const Sermon = () => {
               )}
               {videoUrl && (
                 <div className="sermon-action-buttons">
-                  <button 
-                    onClick={handleDownload} 
+                  <button
+                    onClick={handleDownload}
                     disabled={isDownloading}
                     className="sermon-download-button"
                   >
                     {isDownloading ? "Downloading..." : "Download Sermon"}
                   </button>
-                  
-                  <ShareSermon sermon={sermon} currentUrl={currentUrl} showAsButton={true} />
+                  <ShareSermon
+                    sermon={sermon}
+                    currentUrl={currentUrl}
+                    showAsButton={true}
+                    className="sermon-share-button"
+                  />
                 </div>
               )}
             </div>

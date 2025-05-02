@@ -54,7 +54,7 @@ const Navbar = () => {
             <NavLink
               to="/contact"
               onClick={closeMenu}
-              className="nav-item contact-button"
+              className="nav-item contact-button btn btn-primary"
             >
               Contact Us
             </NavLink>
@@ -68,7 +68,7 @@ const Navbar = () => {
           <NavLink
             to="/contact"
             onClick={closeMenu}
-            className="nav-item contact-button"
+            className="nav-item contact-button btn btn-primary"
           >
             Contact Us
           </NavLink>

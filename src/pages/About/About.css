@@ -516,11 +516,6 @@
     order: 2;
     width: 100%;
     padding: 30px 20px;
-    text-align: center;
-  }
-
-  .divider {
-    margin: 0 auto 25px;
   }
 
   .trust-section,
@@ -570,7 +565,6 @@
 
   .about-hero-buttons {
     gap: 15px;
-    justify-content: center;
     margin-top: 30px;
   }
   
@@ -599,7 +593,7 @@
   }
 
   .mission-content p {
-    font-size: 0.95rem;
+    font-size: 1rem;
   }
 
   .dark-container-mission,
@@ -622,13 +616,13 @@
   }
 
   .about-hero-content {
-    font-size: 0.95rem;
+    font-size: 1rem;
     line-height: 1.6;
   }
 
   .about-hero-buttons {
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     width: 100%;
     gap: 15px;
   }
@@ -669,7 +663,7 @@
   }
   
   .join-us p {
-    font-size: 0.95rem;
+    font-size: 1rem;
     line-height: 1.6;
   }
   
