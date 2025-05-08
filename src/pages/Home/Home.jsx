@@ -31,32 +31,32 @@ const Home = () => {
             <Hero />
           </div>
           
-          <div className="section-wrapper history-wrapper">
+          <div className="section-wrapper history-wrapper" data-aos="fade-up">
             <Shapes section="history" />
             <HomeHistory />
           </div>
           
-          <div className="section-wrapper mission-wrapper">
+          <div className="section-wrapper mission-wrapper" data-aos="fade-up" data-aos-delay="1000">
             <Shapes section="mission" />
             <MissionVision />
           </div>
           
-          <div className="section-wrapper services-wrapper">
+          <div className="section-wrapper services-wrapper" data-aos="fade-up" data-aos-delay="1000">
             <Shapes section="services" />
             <HomeServices />
           </div>
           
-          <div className="section-wrapper ministries-wrapper">
+          <div className="section-wrapper ministries-wrapper" data-aos="fade-up" data-aos-delay="1000">
             <Shapes section="ministries" />
             <HomeMinistries />
           </div>
           
-          <div className="section-wrapper events-wrapper">
+          <div className="section-wrapper events-wrapper" data-aos="fade-up" data-aos-delay="1500">
             <Shapes section="events" />
             <HomeEvent />
           </div>
           
-          <div className="section-wrapper contact-wrapper">
+          <div className="section-wrapper contact-wrapper" data-aos="fade-up" data-aos-delay="100">
             <Shapes section="contact" />
             <HomeContact />
           </div>

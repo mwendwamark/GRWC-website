@@ -13,8 +13,8 @@ const HomeMinistries = () => {
     <>
       <section className="ministries-section section container">
         <header className="history-headers container">
-          <h2 className="small-header">MINISTRIES</h2>
-          <h1 className="big-header">CHURCH MINISTRIES</h1>
+          <h2 className="small-header" data-aos="fade-down" data-aos-duration="800">MINISTRIES</h2>
+          <h1 className="big-header" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">CHURCH MINISTRIES</h1>
         </header>
 
         <Swiper
@@ -47,12 +47,12 @@ const HomeMinistries = () => {
         >
           {MinistriesData.map(({ id, image, title, description }) => (
             <SwiperSlide className="ministries-card" key={id}>
-              <div className="ministries-card-content">
-                <img src={image} alt={title} className="ministries-img" />
+              <div className="ministries-card-content" data-aos="flip-up" data-aos-duration="1000">
+                <img src={image} alt={title} className="ministries-img" data-aos="zoom-in" data-aos-delay="200" />
                 <div className="ministries-info">
-                  <h3 className="ministries-title">{title}</h3>
-                  <p className="ministries-description">{description}</p>
-                  <NavLink to="/ministries">More details</NavLink>
+                  <h3 className="ministries-title" data-aos="fade-up" data-aos-delay="300">{title}</h3>
+                  <p className="ministries-description" data-aos="fade-up" data-aos-delay="400">{description}</p>
+                  <NavLink to="/ministries" data-aos="zoom-in" data-aos-delay="500">More details</NavLink>
                 </div>
               </div>
             </SwiperSlide>

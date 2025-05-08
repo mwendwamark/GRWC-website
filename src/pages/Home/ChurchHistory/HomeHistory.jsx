@@ -4,23 +4,23 @@ import { NavLink } from "react-router-dom";
 import { LiaLongArrowAltRightSolid } from "react-icons/lia";
 import img from "../../../assets/HeroImages/image3.jpg";
 
-
 import "react-toastify/dist/ReactToastify.css";
 const HomeHistory = () => {
+
   return (
     <>
-      <section className="church-history-section container section">
-        <header className="history-headers">
+      <section className="church-history-section container section" >
+        <header className="history-headers" data-aos="fade-down" data-aos-duration="800">
           <h2 className="small-header">About us</h2>
           <h1 className="big-header">Get to know us</h1>
         </header>
 
-        <div className="church-history-contents">
+        <div className="church-history-contents" data-aos="fade-up" data-aos-delay="200">
           <div className="church-history-image-container">
             <img src={img} alt="History of Gospel Revival Wave" />
           </div>
 
-          <div className="church-history-texts">
+          <div className="church-history-texts" data-aos="fade-up" data-aos-delay="400">
             <h3>History of gospel revival wave</h3>
             <p>
               Gospel Revival Wave Church, founded in 1999, began as a small
@@ -37,12 +37,12 @@ const HomeHistory = () => {
             </p>
             <p>
               Today, Gospel Revival Wave Church inspires unity and faith,
-              encouraging individuals to live out God’s love. With a focus on
+              encouraging individuals to live out God's love. With a focus on
               spiritual growth and community transformation, the church
               continues to embrace the future with faith and purpose.
             </p>
 
-            <NavLink to="/about" className=" read-more-btn btn btn-primary">
+            <NavLink to="/about" className=" read-more-btn btn btn-primary" data-aos="fade-up" data-aos-delay="600">
               Read more <LiaLongArrowAltRightSolid className="purple-icon" />
             </NavLink>
           </div>

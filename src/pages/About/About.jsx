@@ -25,14 +25,14 @@ const About = () => {
       {/* Hero Section */}
       <section className="about-hero small-section">
         <div className="container">
-          <h1 className="about-hero-title">About Us</h1>
-          <p className="about-hero-content">
+          <h1 className="about-hero-title" data-aos="fade-down">About Us</h1>
+          <p className="about-hero-content" data-aos="fade-up" data-aos-delay="100">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
             explicabo quia voluptate, provident quod quisquam, quas ipsum
             asperiores laborum iste sunt expedita esse cum temporibus suscipit
             voluptas perspiciatis debitis eligendi magnam commodi consequuntur.
           </p>
-          <div className="about-hero-buttons">
+          <div className="about-hero-buttons" data-aos="fade-up" data-aos-delay="200">
             <NavLink to="/sermons" className="about-hero-btn about-btn-primary">
               Sermons <GoArrowUpRight />
             </NavLink>
@@ -46,7 +46,7 @@ const About = () => {
       {/* Church Trust Section - Now with overlapping content */}
       <section className="trust-section section">
         <Shapes />
-        <div className="trust-image">
+        <div className="trust-image" data-aos="fade-right" data-aos-duration="1200">
           <img
             src={churchGroupImage}
             alt="Church community praying together"
@@ -54,7 +54,7 @@ const About = () => {
             loading="lazy"
           />
         </div>
-        <div className="trust-content">
+        <div className="trust-content" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
           <div className="content-divider"></div>
           <h1 className="trust-title">
             In our church we trust in the strength of God's love
@@ -73,7 +73,7 @@ const About = () => {
       <section className="dark-container-mission section">
         <div className="mission-section ">
           <div className="mission-container">
-            <div className="mission-content">
+            <div className="mission-content" data-aos="fade-right" data-aos-duration="1000">
               <div className="divider"></div>
               <h1>Our mission</h1>
               <p>
@@ -89,7 +89,7 @@ const About = () => {
                 in.
               </p>
             </div>
-            <div className="mission-image">
+            <div className="mission-image" data-aos="fade-left" data-aos-delay="200">
               <img src={bibleImage} alt="Bible study" loading="lazy" />
             </div>
           </div>
@@ -99,7 +99,7 @@ const About = () => {
       {/* Community Section - Original from your code */}
       <section className="community-section section">
         <Shapes />
-        <div className="community-image">
+        <div className="community-image" data-aos="zoom-in-right" data-aos-duration="1000">
           <img
             src={communityImage}
             alt="Church Community"
@@ -107,7 +107,7 @@ const About = () => {
             loading="lazy"
           />
         </div>
-        <div className="community-content">
+        <div className="community-content" data-aos="zoom-in-left" data-aos-delay="200">
           <div className="content-divider"></div>
           <h1 className="community-title">
             We foster a community built on faith and fellowship
@@ -122,10 +122,10 @@ const About = () => {
 
       {/* <hr className="section-divider" /> */}
 
-      <section className="dark-container-vision  section">
+      <section className="dark-container-vision section">
         <div className="mission-section">
           <div className="mission-container">
-            <div className="mission-content">
+            <div className="mission-content" data-aos="fade-up-right" data-aos-duration="1000">
               <div className="divider"></div>
               <h1>Our vision</h1>
               <p>
@@ -141,7 +141,7 @@ const About = () => {
                 in.
               </p>
             </div>
-            <div className="mission-image">
+            <div className="mission-image" data-aos="fade-up-left" data-aos-delay="200">
               <img src={bibleImage} alt="Bible study" loading="lazy" />
             </div>
           </div>
@@ -149,19 +149,19 @@ const About = () => {
       </section>
 
       {/* Mission and Values Section */}
-      <section className="leaders_and_pastors-section" id="leaders">
+      <section className="leaders_and_pastors-section" id="leaders" data-aos="fade-up">
         <Leaders />
       </section>
       {/* Join Us Section */}
-      <section className="join-us section-bottom">
+      <section className="join-us section-bottom" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
         <div className="container">
-          <h1>Join Us This Sunday</h1>
-          <p>
+          <h1 data-aos="fade-down" data-aos-delay="100">Join Us This Sunday</h1>
+          <p data-aos="fade-up" data-aos-delay="200">
             We'd love to have you join us for worship. Our services are designed
             to be welcoming to all, regardless of where you are on your
             spiritual journey.
           </p>
-          <NavLink to="/contact" className="btn btn-cta">
+          <NavLink to="/contact" className="btn btn-cta" data-aos="zoom-in" data-aos-delay="300">
             Plan Your Visit
           </NavLink>
         </div>

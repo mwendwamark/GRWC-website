@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -14,10 +14,10 @@ const Hero = () => {
     <>
       <section className="hero-section container">
         <div className="hero-title">
-          <h1>
-            GOSPEL REVIVAL <br /> <span>WAVE CHURCH</span>
+          <h1 data-aos="fade-down" data-aos-duration="1200">
+            GOSPEL REVIVAL <br /> <span data-aos="fade-up" data-aos-delay="300" data-aos-duration="1200">WAVE CHURCH</span>
           </h1>
-          <p>Preaching Jesus Christ, the desire of all nations</p>
+          <p data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">Preaching Jesus Christ, the desire of all nations</p>
         </div>
 
         <Swiper
@@ -56,10 +56,12 @@ const Hero = () => {
                   />
                 )}
                 <div className="slide-text">
-                  <p>{item.text}</p>
+                  <p data-aos="fade-right" data-aos-duration="1000">{item.text}</p>
                   <NavLink
                     className="visit-btn btn btn-primary btn-icon"
                     to="/about"
+                    data-aos="zoom-in" 
+                    data-aos-delay="300"
                   >
                     Visit us <LiaLongArrowAltRightSolid />
                   </NavLink>

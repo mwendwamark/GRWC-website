@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
@@ -20,6 +22,19 @@ import { getFullApiUrl } from "./Utils/apiConfig";
 import NotFound from "./pages/NotFound/NotFound";
 
 const App = () => {
+  // Initialize AOS animation library
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,      // Animation duration in ms
+      once: true,          // Whether animation should happen only once
+      easing: 'ease-out',  // Default easing for animations
+      offset: 120,         // Offset (in px) from the original trigger point
+      delay: 0,            // Default delay before animation starts
+      mirror: false,       // Whether elements should animate out while scrolling past them
+      anchorPlacement: 'top-bottom', // Which position of the element regarding to window should trigger the animation
+    });
+  }, []);
+
   // Fetch announcements data using environment-based URLs
   const { 
     loading: announcementsLoading, 

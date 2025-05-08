@@ -106,6 +106,8 @@
   transform: translateX(8px);
 }
 
+
+
 /* RESPONSIVENESS */
 @media (max-width: 950px) {
   .church-history-section {
@@ -122,7 +124,6 @@
 
   .church-history-image-container {
     width: 100%;
-    max-width: 500px; /* Limit width on smaller screens */
     padding-right: 10px; /* Smaller padding for mobile */
     padding-bottom: 10px; /* Smaller padding for mobile */
   }
