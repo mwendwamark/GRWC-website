@@ -20,6 +20,7 @@
   color: var(--black-color);
   font-weight: 500;
   margin-bottom: 1rem;
+  font-size: 1.5rem;
 }
 
 .name-field,
@@ -100,7 +101,7 @@
   }
 
   .location {
-    min-height: 250px;
+    min-height: 400px;
   }
 }
 
@@ -127,7 +128,7 @@
   }
 
   .location {
-    min-height: 200px;
+    min-height: 350px;
   }
   .contact-us-contents form h1 {
     font-size: 1.3rem;

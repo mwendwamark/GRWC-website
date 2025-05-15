@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import logo from "../../assets/logo.png";
@@ -6,12 +6,31 @@ import "./Navbar.css";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  // Handle scrolling effect
+  useEffect(() => {
+    const handleScroll = () => {
+      // Check if page is scrolled more than the navbar height (approximately)
+      const isScrolled = window.scrollY > 80;
+      if (isScrolled !== scrolled) {
+        setScrolled(isScrolled);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up event listener
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [scrolled]);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const closeMenu = () => setMenuOpen(false);
 
   return (
-    <nav className="navbar">
+    <nav className={`navbar ${scrolled ? "navbar-scrolled" : ""}`}>
       <div className="navbar-container container">
         {/* Logo */}
         <NavLink to="/" className="navbar-logo">
@@ -45,7 +64,9 @@ const Navbar = () => {
             to="/announcements"
             onClick={closeMenu}
             className="nav-item"
-            >Announcements</NavLink> */}
+          >
+            Announcements
+          </NavLink> */}
           <div className="nav-right-side hide-on-large">
             {/* Add Buttons Here for Small Screens */}
             <NavLink to="/donate" onClick={closeMenu} className="nav-item">
@@ -54,7 +75,7 @@ const Navbar = () => {
             <NavLink
               to="/contact"
               onClick={closeMenu}
-              className="nav-item contact-button btn btn-primary"
+              className="nav-item contact-button btn-primary"
             >
               Contact Us
             </NavLink>
@@ -68,7 +89,7 @@ const Navbar = () => {
           <NavLink
             to="/contact"
             onClick={closeMenu}
-            className="nav-item contact-button btn btn-primary"
+            className="nav-item contact-button btn-primary"
           >
             Contact Us
           </NavLink>
@@ -76,7 +97,7 @@ const Navbar = () => {
 
         {/* Menu Icon */}
         <div className="navbar-menu-icon" onClick={toggleMenu}>
-          {menuOpen ? <FaTimes style={{ color: "black" }} /> : <FaBars />}
+          {menuOpen ? <FaTimes  /> : <FaBars style={{ color: "black" }}/>}
         </div>
       </div>
 

@@ -27,7 +27,7 @@ const leadersData = [
     },
   },
   {
-    name: "John Carter",
+    name: "Pastor John",
     role: "PRINCIPAL PASTOR",
     image: img1,
     bio: "Lorem ipsum dolor sit amet consectetur adipiscing elit uma vitae ac vitae lacus ac proin ultricies tellend qui ut felis dolor sit amet sui con",
@@ -38,7 +38,7 @@ const leadersData = [
     },
   },
   {
-    name: "Sophie Carter",
+    name: "Pastor Njoroge",
     role: "PRINCIPAL PASTOR",
     image: img2,
     bio: "Lorem ipsum dolor sit amet consectetur adipiscing elit uma vitae ac vitae lacus ac proin ultricies tellend qui ut felis dolor sit amet sui con",
@@ -49,8 +49,8 @@ const leadersData = [
     },
   },
   {
-    name: "Pastor Michael Brown",
-    role: "Worship Leader",
+    name: "Apostle Nginya",
+    role: "JUNIOR APOSTLE",
     image: img3,
     bio: "Lorem ipsum dolor sit amet consectetur adipiscing elit uma vitae ac vitae lacus ac proin ultricies tellend qui ut felis dolor sit amet sui con",
     social: {
@@ -60,8 +60,8 @@ const leadersData = [
     },
   },
   {
-    name: "Pastor Sarah Wilson",
-    role: "Children's Pastor",
+    name: "Minister Joseph Waweru",
+    role: "KYC Pastor",
     image: img4,
     bio: "Lorem ipsum dolor sit amet consectetur adipiscing elit uma vitae ac vitae lacus ac proin ultricies tellend qui ut felis dolor sit amet sui con",
     social: {
