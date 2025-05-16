@@ -1,92 +1,85 @@
-import React from 'react';
-import './Ministries.css';
-import { getImageUrl } from '../../Utils/apiConfig';
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
+import "./Ministries.css";
 import { Helmet } from "react-helmet";
+import img1 from "../../assets/HeroImages/image2.jpg";
+import { MinistriesPageData } from "./MinistriesPageData";
 
-const Ministries = ({ ministries }) => {
-  const ministriesArray = Array.isArray(ministries) ? ministries : [];
+const Ministries = () => {
+  useEffect(() => {
+    // Scroll to top when component mounts
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>
       <Helmet>
         <title>Ministries | Gospel Revival Wave Church</title>
-        <meta name="description" content="Explore the ministries at Gospel Revival Wave Church. Find your place to serve and grow in faith." />
-        <meta property="og:title" content="Ministries | Gospel Revival Wave Church" />
-        <meta property="og:description" content="Explore the ministries at Gospel Revival Wave Church. Find your place to serve and grow in faith." />
+        <meta
+          name="description"
+          content="Explore the ministries at Gospel Revival Wave Church. Find your place to serve and grow in faith."
+        />
+        <meta
+          property="og:title"
+          content="Ministries | Gospel Revival Wave Church"
+        />
+        <meta
+          property="og:description"
+          content="Explore the ministries at Gospel Revival Wave Church. Find your place to serve and grow in faith."
+        />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://grwc.vercel.app/ministries" />
         <link rel="canonical" href="https://grwc.vercel.app/ministries" />
       </Helmet>
-      <div className="ministries-page">
-        {/* Hero Section */}
-        <div className="ministries-hero">
-          <div className="ministries-hero-overlay">
-            <div className="container">
-              <h1 className="ministries-hero-title">Our Ministries</h1>
-              <p className="ministries-hero-subtitle">Discover how you can serve and grow in your faith</p>
-            </div>
-          </div>
-        </div>
 
-        {/* Ministries Grid */}
-        <div className="container">
-          <section className="ministries-grid">
-            {ministriesArray.map((ministry) => (
-              <div key={ministry.id} className="ministry-card">
-                {ministry.image && (
-                  <div className="ministry-image">
-                    <img 
-                      src={getImageUrl(ministry.image.url)} 
-                      alt={ministry.title}
-                      className="ministry-image-content"
-                    />
-                  </div>
-                )}
-                <div className="ministry-content">
-                  <h3 className="ministry-title">{ministry.title}</h3>
-                  <p className="ministry-description">{ministry.description}</p>
-                  <div className="ministry-leaders">
-                    <h4>Leaders:</h4>
-                    <ul>
-                      {ministry.leaders?.map((leader, index) => (
-                        <li key={index}>{leader.name}</li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="ministry-contact">
-                    <p>Contact: {ministry.contactEmail}</p>
+      {/* Hero Section with Animated Title */}
+      <section className="ministries-hero">
+        <div className="ministry-card small-section container">
+          <div className="image-overlay" />
+          <img
+            src={img1}
+            alt="Ministry at Gospel Revival Wave Church"
+            className="ministries-page-background-image"
+            loading="eager"
+          />
+          <h1 className="ministry-title">Ministries</h1>
+        </div>
+      </section>
+
+      {/* Ministry Details Section */}
+      {MinistriesPageData.map(
+        ({ id, title, icon, description, keyVerse, verseText, image }, index) => (
+          <section
+            className={`ministries-detailed_page container`}
+            key={id}
+          >
+            <div className="ministries-page_details">
+              <div className="ministries-details_contents">
+                <div className="ministries-details_left">
+                  <b className="ministry-icon">{icon}</b>
+                  <div className="ministries-page_content">
+                    <h3>{title}</h3>
+                    <p>{description}</p>
+                    <div className="ministries-page_verses">
+                      <span>{verseText} - </span>
+                      <i>"{keyVerse}"</i>
+                    </div>
+                    <div className="ministry-button-container">
+                      <Link to={`/ministries/${id}`} className="ministry-learn-more">
+                        Learn More
+                      </Link>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </section>
-        </div>
 
-        {/* Ministry Categories */}
-        <section className="ministry-categories">
-          <div className="container">
-            <h2>Ministry Categories</h2>
-            <div className="categories-grid">
-              <div className="category-card">
-                <h3>Worship & Music</h3>
-                <p>Serving through music and praise</p>
-              </div>
-              <div className="category-card">
-                <h3>Youth & Children</h3>
-                <p>Ministries for all ages</p>
-              </div>
-              <div className="category-card">
-                <h3>Community Service</h3>
-                <p>Outreach and service ministries</p>
-              </div>
-              <div className="category-card">
-                <h3>Discipleship</h3>
-                <p>Growth and spiritual development</p>
+                <div className="ministries-details_right-image">
+                  <img src={image} alt={`${title} Ministry`} />
+                </div>
               </div>
             </div>
-          </div>
-        </section>
-      </div>
+          </section>
+        )
+      )}
     </>
   );
 };
