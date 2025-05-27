@@ -5,6 +5,8 @@ import {
   FaUserFriends,
   FaBolt,
   FaVolumeUp,
+  FaUsers,
+  FaHeart,
 } from "react-icons/fa";
 import img1 from "../../assets/Ministries/choir.jpg";
 import img2 from "../../assets/Ministries/sundaySchool.jpg";
@@ -12,11 +14,14 @@ import img3 from "../../assets/Ministries/usher.jpg";
 import img4 from "../../assets/Ministries/youngster.jpg";
 import img5 from "../../assets/Ministries/youth.jpg";
 import img6 from "../../assets/Ministries/sound.jpg";
+import img7 from "../../assets/Ministries/mens.jpg"; // Add men's ministry image
+import img8 from "../../assets/Ministries/womens.jpg"; // Add women's ministry image
+
 export const MinistriesPageData = [
   {
     id: 1,
     title: "Choir (Sounds of Revival)",
-    icon: <FaMicrophone style={{color: ["var(--purple-color)"]}}/>,
+    icon: <FaMicrophone style={{color: "var(--purple-color)"}}/>,
     image: img1,
     description:
       "Voices united in divine harmony, our choir breathes life into worship through heavenly melodies and spirit-filled praise. Every note resonates with devotion, ushering the congregation into God's presence.",
@@ -84,5 +89,29 @@ export const MinistriesPageData = [
     keyVerse: "Psalm 150:5",
     verseText:
       "Praise him with the clash of cymbals, praise him with resounding cymbals.",
+  },
+  {
+    id: 7,
+    title: "Men's Ministry (Kingdom Warriors)",
+    icon: <FaUsers style={{color: "#2c3e50"}}/>,
+    image: img7,
+    description:
+      "Iron sharpening iron in brotherhood and faith. Our men gather to build godly character, strengthen marriages, excel in fatherhood, and lead with integrity. Through accountability, prayer, and fellowship, we forge Kingdom warriors who impact families and communities.",
+    meetingDays: "Saturdays",
+    keyVerse: "Proverbs 27:17",
+    verseText:
+      "As iron sharpens iron, so one person sharpens another.",
+  },
+  {
+    id: 8,
+    title: "Women's Ministry (Daughters of Zion)",
+    icon: <FaHeart style={{color: "#e74c3c"}}/>,
+    image: img8,
+    description:
+      "Celebrating the beauty of godly womanhood in all seasons of life. Our women's ministry creates a safe haven for spiritual growth, mutual support, and purposeful living. Through Bible study, prayer, mentorship, and service, we empower women to flourish in their calling as daughters of the King.",
+    meetingDays: "Thursdays",
+    keyVerse: "Proverbs 31:30",
+    verseText:
+      "Charm is deceptive, and beauty is fleeting; but a woman who fears the LORD is to be praised.",
   },
 ];

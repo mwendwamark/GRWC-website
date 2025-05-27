@@ -62,7 +62,7 @@ const leadersData = [
   {
     name: "Minister Joseph Waweru",
     role: "KYC Pastor",
-    image: img4,
+    image: img2,
     bio: "Lorem ipsum dolor sit amet consectetur adipiscing elit uma vitae ac vitae lacus ac proin ultricies tellend qui ut felis dolor sit amet sui con",
     social: {
       facebook: "https://facebook.com/pastorsarah",

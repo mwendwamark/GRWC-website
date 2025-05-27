@@ -31,7 +31,7 @@ const Footer = () => {
               </p>
             </div>
 
-            <div className="left-footer-btn">
+            <div className=" btn btn-primary">
               <NavLink to="/contact"> Join us</NavLink>
             </div>
           </div>
