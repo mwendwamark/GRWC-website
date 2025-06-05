@@ -5,19 +5,30 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper/modules";
-import {  FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaTwitter, FaInstagram } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa6";
 import img1 from "../../../assets/LeadersImages/leaderImg1.jpg";
 import img2 from "../../../assets/LeadersImages/leaderImg2.jpg";
 import img3 from "../../../assets/LeadersImages/leaderImg3.jpg";
 import img4 from "../../../assets/LeadersImages/leaderImg4.jpg";
-import bishop from "../../../assets/HeroImages/image1.jpg"
+import bishop from "../../../assets/HeroImages/image1.jpg";
 
 // Leaders and Pastors Data
 const leadersData = [
   {
     name: "Bishop James Ireri",
     role: "BISHOP OF THE CHURCH",
+    image: bishop,
+    bio: "Lorem ipsum dolor sit amet consectetur adipiscing elit uma vitae ac vitae lacus ac proin ultricies tellend qui ut felis dolor sit amet sui con",
+    social: {
+      facebook: "https://facebook.com/bishopireri",
+      twitter: "https://twitter.com/bishopireri",
+      instagram: "https://instagram.com/bishopireri",
+    },
+  },
+  {
+    name: "Pastor Rose Ireri",
+    role: "PASTOR",
     image: bishop,
     bio: "Lorem ipsum dolor sit amet consectetur adipiscing elit uma vitae ac vitae lacus ac proin ultricies tellend qui ut felis dolor sit amet sui con",
     social: {
@@ -78,13 +89,17 @@ const Leaders = () => {
       <div className="leaders-container">
         <div className="leaders-header">
           <div className="title-line"></div>
-          <h2>Meet our leadership team and,<br />our beloved pastors</h2>
+          <h2>
+            Meet our leadership team and,
+            <br />
+            our beloved pastors
+          </h2>
           <p className="leaders-subtitle">
-            Lorem ipsum dolor sit amet consectetur adipiscing elit uma
-            vitae ac vitae lacus ac proin ultricies ellefend qui ut felis
+            Lorem ipsum dolor sit amet consectetur adipiscing elit uma vitae ac
+            vitae lacus ac proin ultricies ellefend qui ut felis
           </p>
         </div>
-        
+
         <Swiper
           spaceBetween={10}
           slidesPerView={1}
@@ -113,24 +128,36 @@ const Leaders = () => {
             <SwiperSlide key={index}>
               <div className="leader-card">
                 <div className="leader-image">
-                  <img src={leader.image} alt={leader.name} loading="lazy"/>
+                  <img src={leader.image} alt={leader.name} loading="lazy" />
                 </div>
                 <div className="leader-info">
                   <h3>{leader.name}</h3>
                   <h4>{leader.role}</h4>
                   <p>{leader.bio}</p>
                   <div className="social-icons">
-                    <a href={leader.social.facebook} aria-label="Facebook" className="leaders-social-link">
+                    <a
+                      href={leader.social.facebook}
+                      aria-label="Facebook"
+                      className="leaders-social-link"
+                    >
                       <div className="leaders-social-icon">
                         <FaFacebook />
                       </div>
                     </a>
-                    <a href={leader.social.twitter} aria-label="Twitter" className="leaders-social-link">
+                    <a
+                      href={leader.social.twitter}
+                      aria-label="Twitter"
+                      className="leaders-social-link"
+                    >
                       <div className="leaders-social-icon">
                         <FaTwitter />
                       </div>
                     </a>
-                    <a href={leader.social.instagram} aria-label="Instagram" className="leaders-social-link">
+                    <a
+                      href={leader.social.instagram}
+                      aria-label="Instagram"
+                      className="leaders-social-link"
+                    >
                       <div className="leaders-social-icon">
                         <FaInstagram />
                       </div>
