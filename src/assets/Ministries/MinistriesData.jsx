@@ -1,9 +1,10 @@
-import img1 from "./choir.jpg";
-import img2 from "./sundaySchool.jpg";
+import img1 from "../grwcImages/Choir.jpg";
+import img2 from "../grwcImages/SundaySchool3.jpg";
 import img3 from "./usher.jpg";
-import img4 from "./youngster.jpg";
+import img4 from "../grwcImages/KasaraniYoungsters.jpg";
 import img5 from "./youth.jpg";
-import img6 from "./sound.jpg";
+import img6 from "../grwcImages/SoundMinistry.jpg";
+import img7 from "../grwcImages/Security.jpg";
 
 export const MinistriesData = [
   {
@@ -47,5 +48,13 @@ export const MinistriesData = [
     title: "Sound Department",
     description:
       "A dedicated team ensuring excellent audio quality to enhance worship experiences and events.",
+  },
+
+  {
+    id: 7,
+    image: img7,
+    title: "Security Department",
+    description:
+      "Well trained and able personel that ensure church members carry on with the service without any disruptions.",
   },
 ];

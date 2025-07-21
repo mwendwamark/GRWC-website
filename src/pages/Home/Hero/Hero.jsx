@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -38,6 +37,7 @@ const Hero = () => {
           {HeroData.map((item) => (
             <SwiperSlide key={item.id}>
               <div className="slide">
+                <div className="slide-overlay"></div> {/* Dark overlay */}
                 {/* Check if the file is a video */}
                 {item.image.endsWith(".mp4") ? (
                   <video
@@ -60,7 +60,7 @@ const Hero = () => {
                   <NavLink
                     className="visit-btn btn btn-primary btn-icon"
                     to="/about"
-                    data-aos="zoom-in" 
+                    data-aos="zoom-in"
                     data-aos-delay="300"
                   >
                     Visit us <LiaLongArrowAltRightSolid />

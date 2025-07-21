@@ -4,7 +4,10 @@ import { NavLink } from "react-router-dom";
 import { MdOutlineAccessAlarms } from "react-icons/md";
 import { BsArrowUpRight } from "react-icons/bs";
 
-import img1 from "../../../assets/services.jpg";
+// import img1 from "../../../assets/services.jpg";
+
+import img1 from "../../../assets/grwcImages/InsideChurch.jpg"
+
 
 const HomeServices = () => {
   return (

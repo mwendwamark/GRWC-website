@@ -1,7 +1,7 @@
 import img1 from "./image1.jpg";
-import img2 from "./image2.jpg";
-import img3 from "./image3.jpg";
-import img4 from "./image4.jpg";
+import img2 from "../grwcImages/InsideChurch.jpg";
+import img3 from "../grwcImages/BishopPreaching.jpg";
+import img4 from "../grwcImages/HeroImage4.jpg";
 import vid1 from "./vid1.mp4";
 
 export const HeroData = [
