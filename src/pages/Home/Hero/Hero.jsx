@@ -1,78 +1,207 @@
 import { Swiper, SwiperSlide } from "swiper/react";
+import { memo, useState, useEffect, useCallback } from "react";
 import "swiper/css";
 import "swiper/css/pagination";
-import "swiper/css/navigation";
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import { HeroData } from "../../../assets/HeroImages/HeroData"; // Import your HeroData file
+import { Autoplay, Pagination } from "swiper/modules";
+import { HeroData } from "../../../assets/HeroImages/HeroData";
 import "./Hero.css";
 import { NavLink } from "react-router-dom";
 import { LiaLongArrowAltRightSolid } from "react-icons/lia";
 
-const Hero = () => {
-  return (
-    <>
-      <section className="hero-section container">
-        <div className="hero-title">
-          <h1 data-aos="fade-down" data-aos-duration="1200">
-            GOSPEL REVIVAL <br /> <span data-aos="fade-up" data-aos-delay="300" data-aos-duration="1200">WAVE CHURCH</span>
-          </h1>
-          <p data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">Preaching Jesus Christ, the desire of all nations</p>
-        </div>
+const Hero = memo(() => {
+  const [isClient, setIsClient] = useState(false);
+  const [loadedImages, setLoadedImages] = useState(new Set());
 
-        <Swiper
-          slidesPerView={1}
-          spaceBetween={0}
-          loop={true}
-          pagination={{
-            clickable: true,
+  const criticalStyles = {
+    heroSection: {
+      position: 'relative',
+      width: '100%',
+      height: '800px',
+      marginTop: '60px',
+    }
+  };
+
+  useEffect(() => {
+    setIsClient(true);
+
+    // Preload the first image for faster LCP
+    if (HeroData.length > 0 && !HeroData[0].image.endsWith(".mp4")) {
+      const firstImage = new Image();
+      firstImage.src = HeroData[0].image;
+      firstImage.onload = () => {
+        setLoadedImages(prev => new Set([...prev, HeroData[0].image]));
+      };
+    }
+
+    // Initialize AOS with performance optimizations
+    if (typeof window !== 'undefined' && window.AOS) {
+      window.AOS.init({
+        duration: 800,
+        once: true,
+        mirror: false,
+        disable: window.innerWidth < 768 ? 'mobile' : false,
+        easing: 'ease-out-cubic'
+      });
+    }
+  }, []);
+
+  const handleImageLoad = useCallback((imageSrc) => {
+    setLoadedImages(prev => new Set([...prev, imageSrc]));
+  }, []);
+
+  const renderSlideContent = useCallback((item, index) => {
+    const isVideo = item.image.endsWith(".mp4");
+    const isFirstSlide = index === 0;
+
+    if (isVideo) {
+      return (
+        <video
+          src={item.image}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload={isFirstSlide ? "metadata" : "none"}
+          poster={`${item.image.replace('.mp4', '')}-poster.jpg`}
+          className="video-slide"
+          style={{
+            width: '100%',
+            height: '700px',
+            objectFit: 'cover'
           }}
-          navigation={false}
-          modules={[Autoplay, Pagination, Navigation]}
-          autoplay={{
-            delay: 10000,
-            disableOnInteraction: false,
-          }}
-          speed={1800} // Transition speed in milliseconds
         >
-          {HeroData.map((item) => (
-            <SwiperSlide key={item.id}>
-              <div className="slide">
-                <div className="slide-overlay"></div> {/* Dark overlay */}
-                {/* Check if the file is a video */}
-                {item.image.endsWith(".mp4") ? (
-                  <video
-                    src={item.image}
-                    autoPlay
-                    loop
-                    muted
-                    className="video-slide"
-                  />
-                ) : (
-                  <img
-                    src={item.image}
-                    alt={`Slide ${item.id}`}
-                    className="image-slide"
-                    // loading="lazy"
-                  />
-                )}
-                <div className="slide-text">
-                  <p data-aos="fade-right" data-aos-duration="1000">{item.text}</p>
-                  <NavLink
-                    className="visit-btn btn btn-primary btn-icon"
-                    to="/about"
-                    data-aos="zoom-in"
-                    data-aos-delay="300"
-                  >
-                    Visit us <LiaLongArrowAltRightSolid />
-                  </NavLink>
-                </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+          Your browser does not support the video tag.
+        </video>
+      );
+    }
+
+    return (
+      <img
+        src={item.image}
+        alt={`Gospel Revival Wave Church - ${item.text.substring(0, 50)}...`}
+        className="image-slide"
+        loading={isFirstSlide ? "eager" : "lazy"}
+        decoding="async"
+        fetchpriority={isFirstSlide ? "high" : "auto"}
+        onLoad={() => handleImageLoad(item.image)}
+        style={{
+          width: '100%',
+          height: '700px',
+          objectFit: 'cover',
+          opacity: loadedImages.has(item.image) || isFirstSlide ? 1 : 0,
+          transition: 'opacity 0.3s ease-in-out'
+        }}
+      />
+    );
+  }, [loadedImages, handleImageLoad]);
+
+  if (!isClient) {
+    // Server-side rendering fallback with critical content
+    return (
+      <section className="hero-section container" >
+        <div className="hero-title">
+          <h1>
+            GOSPEL REVIVAL <br />
+            <span>WAVE CHURCH</span>
+          </h1>
+          <p>Preaching Jesus Christ, the desire of all nations</p>
+        </div>
+        <div className="slide">
+          <div className="slide-overlay"></div>
+          <img
+            src={HeroData[0]?.image}
+            alt="Gospel Revival Wave Church"
+            className="image-slide"
+            loading="eager"
+            style={{
+              width: '100%',
+              height: '700px',
+              objectFit: 'cover'
+            }}
+          />
+          <div className="slide-text">
+            <p>{HeroData[0]?.text}</p>
+            <NavLink
+              className="visit-btn btn btn-primary btn-icon"
+              to="/about"
+            >
+              Visit us <LiaLongArrowAltRightSolid />
+            </NavLink>
+          </div>
+        </div>
       </section>
-    </>
+    );
+  }
+
+  return (
+    <section className="hero-section container">
+      <div className="hero-title">
+        <h1 data-aos="fade-down" data-aos-duration="800">
+          GOSPEL REVIVAL <br />
+          <span data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
+            WAVE CHURCH
+          </span>
+        </h1>
+        <p data-aos="fade-up" data-aos-delay="400" data-aos-duration="600">
+          Preaching Jesus Christ, the desire of all nations
+        </p>
+      </div>
+
+      <Swiper
+        slidesPerView={1}
+        spaceBetween={0}
+        loop={true}
+        pagination={{
+          clickable: true,
+          dynamicBullets: true,
+        }}
+        navigation={false}
+        modules={[Autoplay, Pagination]}
+        autoplay={{
+          delay: 8000,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+        }}
+        speed={1200}
+        lazy={{
+          loadPrevNext: true,
+          loadPrevNextAmount: 1,
+        }}
+        watchSlidesProgress={true}
+        updateOnWindowResize={true}
+        observer={true}
+        observeParents={true}
+      >
+        {HeroData.map((item, index) => (
+          <SwiperSlide key={item.id}>
+            <div className="slide">
+              <div className="slide-overlay"></div>
+              {renderSlideContent(item, index)}
+              <div className="slide-text">
+                <p
+                  data-aos={index === 0 ? "fade-right" : ""}
+                  data-aos-duration="600"
+                >
+                  {item.text}
+                </p>
+                <NavLink
+                  className="visit-btn btn btn-primary btn-icon"
+                  to="/about"
+                  data-aos={index === 0 ? "zoom-in" : ""}
+                  data-aos-delay="200"
+                  aria-label="Visit Gospel Revival Wave Church about page"
+                >
+                  Visit us <LiaLongArrowAltRightSolid aria-hidden="true" />
+                </NavLink>
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </section>
   );
-};
+});
+
+Hero.displayName = 'Hero';
 
 export default Hero;
