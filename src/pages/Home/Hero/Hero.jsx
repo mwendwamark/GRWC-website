@@ -98,7 +98,7 @@ const Hero = memo(() => {
   if (!isClient) {
     // Server-side rendering fallback with critical content
     return (
-      <section className="hero-section container" >
+      <section className="hero-section container" style={criticalStyles.heroSection}>
         <div className="hero-title">
           <h1>
             GOSPEL REVIVAL <br />

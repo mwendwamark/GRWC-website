@@ -1,4 +1,3 @@
-
 .hero-section {
   position: relative;
   width: 100%;
@@ -15,7 +14,7 @@
   color: var(--purple-color);
   z-index: 10;
   width: 100%;
-  will-change: transform; 
+  will-change: transform;
 }
 
 .hero-title h1 {
@@ -25,7 +24,7 @@
   text-transform: uppercase;
   text-align: center;
   width: 100%;
-  font-display: swap; 
+  font-display: swap;
 }
 
 .hero-title h1 span {
@@ -38,21 +37,20 @@
   color: var(--light-pink);
 }
 
-
 .swiper-container {
   width: 100%;
   height: 100%;
 }
 
 .swiper-wrapper {
-  will-change: transform; 
+  will-change: transform;
 }
 
 .slide {
   position: relative;
   width: 100%;
   height: 100%;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 .slide img,
@@ -60,11 +58,10 @@
   width: 100%;
   height: 700px;
   object-fit: cover;
-  transform: translateZ(0); 
-  backface-visibility: hidden; 
+  transform: translateZ(0);
+  backface-visibility: hidden;
   filter: brightness(0.7);
 }
-
 
 .image-slide {
   image-rendering: -webkit-optimize-contrast;
@@ -79,7 +76,7 @@
   height: 700px;
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 1;
-  pointer-events: none; 
+  pointer-events: none;
 }
 
 .slide-text {
@@ -88,14 +85,13 @@
   left: 5%;
   color: white;
   z-index: 10;
-  will-change: transform; 
+  will-change: transform;
 }
 
 .slide-text p {
   font-size: 1rem;
   width: 45%;
 }
-
 
 .swiper-pagination-bullet {
   background-color: rgba(255, 255, 255, 0.5);
@@ -106,14 +102,13 @@
   background-color: var(--purple-color);
 }
 
-
-@media (max-width: 768px) { 
+@media (max-width: 768px) {
   .hero-title {
     top: -8%;
   }
   .hero-title h1 {
-    font-size: 3rem; 
-  } 
+    font-size: 3rem;
+  }
 
   .slide-text {
     bottom: 10%;
@@ -134,13 +129,12 @@
     padding: 8px 16px;
   }
 
-  
   @media (prefers-reduced-motion: reduce) {
     .slide img,
     .video-slide {
       transition: none;
     }
-    
+
     .visit-btn {
       transition: none;
     }
@@ -156,7 +150,7 @@
     margin: 0 auto;
   }
 
-  .slide-text{
+  .slide-text {
     bottom: 20%;
   }
 
@@ -165,4 +159,3 @@
     font-size: 0.95rem;
   }
 }
-
