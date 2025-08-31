@@ -18,7 +18,7 @@
 }
 
 .hero-title h1 {
-  font-size: 3.5rem;
+  font-size: 3rem;
   color: var(--purple-color);
   font-weight: 900 !important;
   text-transform: uppercase;
@@ -157,5 +157,17 @@
   .slide-text p {
     width: 90%;
     font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 390px) {
+  .hero-section{
+    margin-top: 80px;
+  }
+  .hero-title {
+    top: -5%;
+  }
+  .hero-title h1 {
+    font-size: 2rem;
   }
 }

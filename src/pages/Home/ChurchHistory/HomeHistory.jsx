@@ -3,6 +3,7 @@ import "./HomeHistory.css";
 import { NavLink } from "react-router-dom";
 import { FaChurch, FaHeart, FaCross } from "react-icons/fa";
 import img from "../../../assets/HeroImages/image3.jpg";
+import img2 from "../../../assets/Ministries/youngster.jpg"
 
 const HomeHistory = () => {
   return (
@@ -15,13 +16,14 @@ const HomeHistory = () => {
       <div className="about-content">
         <div className="about-image-wrapper" data-aos="fade-right" data-aos-duration="1000">
           <div className="image-container">
-            <img src={img} alt="Gospel Revival Wave Church" className="main-image" />
-            <div className="image-overlay"></div>
+            <img src={img} alt="Gospel Revival Wave Church" className="main-image-1" />
+            <img src={img2} alt="Gospel Revival Wave Church" className="main-image-2" />
+            {/* <div className="image-overlay"></div> */}
           </div>
-          <div className="year-badge">
+          {/* <div className="year-badge">
             <span>Since</span>
             <h3>1999</h3>
-          </div>
+          </div> */}
         </div>
         
         <div className="about-text-container" data-aos="fade-left" data-aos-duration="1000">
