@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./Branches.css";
-import img1 from "../../assets/HeroImages/image2.jpg";
+import img1 from "../../assets/HeroImages/image2.webp";
 import { Helmet } from "react-helmet";
 import { BranchesData } from "./BranchesData";
 import { CiMail } from "react-icons/ci";

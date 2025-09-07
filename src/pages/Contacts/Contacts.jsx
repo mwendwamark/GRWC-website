@@ -1,5 +1,5 @@
 import React from 'react'
-import image from "../../assets/constructions.jpeg";
+import image from "../../assets/constructions.webp";
 import { Helmet } from "react-helmet";
 
 const Contacts = () => {

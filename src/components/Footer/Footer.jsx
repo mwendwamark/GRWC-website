@@ -8,8 +8,8 @@ import { BsInstagram } from "react-icons/bs";
 import { FaTiktok } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import { GrLocation } from "react-icons/gr";
-import logo from "../../assets/logo.png";
-import mpesa from "../../assets/mpesa.png";
+import logo from "../../assets/logo.webp";
+import mpesa from "../../assets/mpesa.webp";
 
 const Footer = () => {
   return (

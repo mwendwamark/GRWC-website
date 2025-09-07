@@ -1,10 +1,10 @@
-import img1 from "../grwcImages/Choir.jpg";
-import img2 from "../grwcImages/SundaySchool3.jpg";
-import img3 from "./usher.jpg";
-import img4 from "../grwcImages/KasaraniYoungsters.jpg";
-import img5 from "./youth.jpg";
-import img6 from "../grwcImages/SoundMinistry.jpg";
-import img7 from "../grwcImages/Security.jpg";
+import img1 from "../grwcImages/Choir.webp";
+import img2 from "../grwcImages/SundaySchool3.webp";
+import img3 from "./usher.webp";
+import img4 from "../grwcImages/KasaraniYoungsters.webp";
+import img5 from "./youth.webp";
+import img6 from "../grwcImages/SoundMinistry.webp";
+import img7 from "../grwcImages/Security.webp";
 
 export const MinistriesData = [
   {

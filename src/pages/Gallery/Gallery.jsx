@@ -1,5 +1,5 @@
 import React from 'react'
-import image from "../../assets/constructions.jpeg";
+import image from "../../assets/constructions.webp";
 
 const Gallery = () => {
   return (

@@ -2,8 +2,8 @@ import React from "react";
 import "./HomeHistory.css";
 import { NavLink } from "react-router-dom";
 import { FaChurch, FaHeart, FaCross } from "react-icons/fa";
-import img from "../../../assets/HeroImages/image3.jpg";
-import img2 from "../../../assets/Ministries/youngster.jpg"
+import img from "../../../assets/HeroImages/image3.webp";
+import img2 from "../../../assets/Ministries/youngster.webp"
 
 const HomeHistory = () => {
   return (

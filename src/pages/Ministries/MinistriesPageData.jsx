@@ -8,14 +8,14 @@ import {
   FaUsers,
   FaHeart,
 } from "react-icons/fa";
-import img1 from "../../assets/Ministries/choir.jpg";
-import img2 from "../../assets/Ministries/sundaySchool.jpg";
-import img3 from "../../assets/Ministries/usher.jpg";
-import img4 from "../../assets/Ministries/youngster.jpg";
-import img5 from "../../assets/Ministries/youth.jpg";
-import img6 from "../../assets/Ministries/sound.jpg";
-import img7 from "../../assets/Ministries/mens.jpg"; // Add men's ministry image
-import img8 from "../../assets/Ministries/womens.jpg"; // Add women's ministry image
+import img8 from "../../assets/grwcImages/women.webp"; // Add women's ministry image
+import img1 from "../../assets/grwcImages/Choir.webp";
+import img2 from "../../assets/grwcImages/SundaySchool3.webp";
+import img3 from "../../assets/grwcImages/usher.webp";
+import img4 from "../../assets/grwcImages/KasaraniYoungsters.webp";
+import img5 from "../../assets/grwcImages/youth.webp";
+import img6 from "../../assets/grwcImages/SoundMinistry.webp";
+import img7 from "../../assets/grwcImages/Security.webp";
 
 export const MinistriesPageData = [
   {

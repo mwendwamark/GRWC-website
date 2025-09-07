@@ -7,11 +7,11 @@ import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper/modules";
 import { FaTwitter, FaInstagram } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa6";
-import img1 from "../../../assets/LeadersImages/leaderImg1.jpg";
-import img2 from "../../../assets/LeadersImages/leaderImg2.jpg";
-import img3 from "../../../assets/LeadersImages/leaderImg3.jpg";
-import img4 from "../../../assets/LeadersImages/leaderImg4.jpg";
-import bishop from "../../../assets/HeroImages/image1.jpg";
+import img1 from "../../../assets/LeadersImages/leaderImg1.webp";
+import img2 from "../../../assets/LeadersImages/leaderImg2.webp";
+import img3 from "../../../assets/LeadersImages/leaderImg3.webp";
+import img4 from "../../../assets/LeadersImages/leaderImg4.webp";
+import bishop from "../../../assets/HeroImages/image1.webp";
 
 // Leaders and Pastors Data
 const leadersData = [

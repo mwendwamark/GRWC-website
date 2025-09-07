@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Ministries.css";
 import { Helmet } from "react-helmet";
-import img1 from "../../assets/HeroImages/image2.jpg";
+import img1 from "../../assets/HeroImages/image2.webp";
 import { MinistriesPageData } from "./MinistriesPageData";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
