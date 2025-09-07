@@ -96,12 +96,13 @@ const HomeContact = () => {
           </form>
           <div className="map-section" data-aos="fade-left" data-aos-duration="1200">
             <iframe
+              title="Google Maps location of Rivival Wave Church"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8990225418943!2d36.9192241!3d-1.2299784999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1572fdbd17e9%3A0x928ea601b7b9255d!2sRivival%20Wave%20Church!5e0!3m2!1sen!2ske!4v1733331807916!5m2!1sen!2ske"
-              allowFullScreen="true"
+              allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               className="location"
-              data-aos="zoom-in" 
+              data-aos="zoom-in"
               data-aos-delay="300"
             ></iframe>{" "}
           </div>
