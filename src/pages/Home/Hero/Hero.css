@@ -60,7 +60,7 @@
   object-fit: cover;
   transform: translateZ(0);
   backface-visibility: hidden;
-  filter: brightness(0.7);
+  filter: brightness(1);
 }
 
 .image-slide {
@@ -81,11 +81,16 @@
 
 .slide-text {
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
   bottom: 15%;
   left: 5%;
   color: white;
   z-index: 10;
   will-change: transform;
+  max-width: fit-content;
+  align-items: flex-start;
 }
 
 .slide-text p {

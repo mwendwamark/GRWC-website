@@ -17,11 +17,11 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url(../../assets/aboutImage2.webp);
+  background-image: url(../../assets/grwcImages/SundaySchool.webp);
   background-size: cover;
   background-position: center;
   z-index: -1;
-  filter: brightness(0.7);
+  filter: brightness(0.9);
   transition: transform 0.5s ease;
 }
 

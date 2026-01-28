@@ -4,25 +4,50 @@ import { NavLink } from "react-router-dom";
 import { MdOutlineAccessAlarms } from "react-icons/md";
 import { BsArrowUpRight } from "react-icons/bs";
 
-import img1 from "../../../assets/grwcImages/InsideChurch.webp"
-
+import img1 from "../../../assets/grwcImages/InsideChurch.webp";
 
 const HomeServices = () => {
   return (
     <>
       <section className="home-services-section section">
         <header className="history-headers container">
-          <h2 className="small-header" data-aos="fade-down">SERVICES</h2>
-          <h1 className="big-header" data-aos="fade-up" data-aos-delay="200">OUR SERVICES</h1>
+          <h2 className="small-header" data-aos="fade-down">
+            SERVICES
+          </h2>
+          <h1 className="big-header" data-aos="fade-up" data-aos-delay="200">
+            OUR SERVICES
+          </h1>
         </header>
 
         <div className="home-services-contents container ">
-          <div className="home-services-contents-left" data-aos="fade-right" data-aos-duration="1000">
+          <div
+            className="home-services-contents-left"
+            data-aos="fade-right"
+            data-aos-duration="1000"
+          >
             <header className="home-services-headers">
-              <h3 className="home-services-small-header" data-aos="fade-up" data-aos-delay="100"> MAIN SERVICES</h3>
-              <h2 className="home-services-big-header" data-aos="fade-up" data-aos-delay="200">JOIN US EVERY SUNDAY</h2>
+              <h3
+                className="home-services-small-header"
+                data-aos="fade-up"
+                data-aos-delay="100"
+              >
+                {" "}
+                MAIN SERVICES
+              </h3>
+              <h2
+                className="home-services-big-header"
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
+                JOIN US EVERY SUNDAY
+              </h2>
             </header>
-            <div className="service-order" data-aos="fade-up" data-aos-delay="300" data-aos-offset="50">
+            <div
+              className="service-order"
+              data-aos="fade-up"
+              data-aos-delay="300"
+              data-aos-offset="50"
+            >
               <h3>
                 First Service <span>(English Service)</span>
               </h3>
@@ -33,7 +58,12 @@ const HomeServices = () => {
                 Join our powerful English Service Every Sunday. All are welcome.
               </p>
             </div>
-            <div className="service-order" data-aos="fade-up" data-aos-delay="500" data-aos-offset="50">
+            <div
+              className="service-order"
+              data-aos="fade-up"
+              data-aos-delay="500"
+              data-aos-offset="50"
+            >
               <h3>
                 Second Service <span>(Swahili Service)</span>
               </h3>
@@ -46,13 +76,23 @@ const HomeServices = () => {
               </p>
             </div>
 
-            <div className="sermons-button" data-aos="zoom-in" data-aos-delay="700">
-              <NavLink to="/sermons">View sermons</NavLink>
+            <NavLink
+              to="/sermons"
+              className="sermons-button"
+              data-aos="zoom-in"
+              data-aos-delay="700"
+            >
+              <p>View sermons</p>
               <BsArrowUpRight style={{ color: "#fff" }} />
-            </div>
+            </NavLink>
           </div>
 
-          <div className="home-services-image-right" data-aos="fade-left" data-aos-duration="1200" data-aos-offset="100">
+          <div
+            className="home-services-image-right"
+            data-aos="fade-left"
+            data-aos-duration="1200"
+            data-aos-offset="100"
+          >
             <img src={img1} alt="Church Services" />
           </div>
         </div>

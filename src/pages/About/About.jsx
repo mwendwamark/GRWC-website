@@ -2,9 +2,9 @@ import React from "react";
 import "./About.css";
 import { NavLink } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import communityImage from "../../assets/aboutImage2.webp";
+import communityImage from "../../assets/grwcImages/PstNjoroge.webp";
 import bibleImage from "../../assets/bible-image.webp"; // You'll need this image
-import churchGroupImage from "../../assets/church-group.webp"; // You'll need this image
+import churchGroupImage from "../../assets/grwcImages/KasaraniYoungsters.webp"; // You'll need this image
 import Shapes from "../../components/Shapes/Shapes";
 import Leaders from "./Leaders/Leaders";
 import { GoArrowUpRight } from "react-icons/go";

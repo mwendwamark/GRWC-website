@@ -80,6 +80,8 @@
   transition: 0.6s linear;
 }
 
+.sermons-button p {color: var(--background-color);}
+
 .sermons-button:hover {
   opacity: 0.6;
 }
